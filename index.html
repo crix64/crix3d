@@ -788,13 +788,13 @@
   <!-- CART DRAWER -->
   <div class="cart-drawer" id="cartDrawer">
     <div class="cart-header">
-      <h2>Mon Panier</h2>
+      <h2><span id="t-cart-title">Mon Panier</span></h2>
       <button class="close-cart" onclick="closeCart()">✕</button>
     </div>
     <div class="cart-items" id="cartItems">
       <div class="cart-empty">
         <div class="cart-empty-icon">🛒</div>
-        <p>Panier vide</p>
+        <p><span id="t-cart-empty">Panier vide</span></p>
       </div>
     </div>
     <div class="cart-footer" id="cartFooter" style="display:none">
@@ -802,7 +802,7 @@
         <span class="cart-total-label">Total</span>
         <span class="cart-total-price" id="cartTotal">0 €</span>
       </div>
-      <button class="checkout-btn" onclick="checkout()">Procéder au paiement →</button>
+      <button class="checkout-btn" onclick="checkout()"><span id="t-checkout">Procéder au paiement →</span></button>
     </div>
   </div>
 
@@ -816,7 +816,7 @@
       <span style="display:none; font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.08em;">CRIX 3D</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#catalogue">Catalogue</a></li>
+      <li><a href="#catalogue"><span id="t-nav-catalogue">Catalogue</span></a></li>
       <li><a href="#custom"><span data-fr="Sur mesure" data-en="Custom order"><span data-fr="Sur mesure" data-en="Custom">Sur mesure</span></span></a></li>
       <li><a href="#why"><span data-fr="À propos" data-en="About">À propos</span></a></li>
       <li class="nav-dropdown">
@@ -833,7 +833,7 @@
       <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
     </div>
     <button class="nav-cart" onclick="openCart()">
-      🛒 Panier <span class="cart-count" id="cartCount">0</span>
+      🛒 <span id="t-panier">Panier</span> <span class="cart-count" id="cartCount">0</span>
     </button>
   </nav>
 
@@ -843,17 +843,16 @@
     <div class="hero-grid"></div>
     <div class="hero-content">
       <div class="hero-left">
-        <div class="hero-tag"><span data-fr="Impression 3D & Gravure Laser" data-en="3D Printing & Laser Engraving">Impression 3D & Gravure Laser</span></div>
+        <div class="hero-tag"><span data-fr="Impression 3D & Gravure Laser" data-en="3D Printing & Laser Engraving"><span id="t-hero-tag">Impression 3D & Gravure Laser</span></span></div>
         <h1 class="hero-title">
           CRIX<br><span>3D</span>
         </h1>
         <p class="hero-subtitle">
-          Des pièces imprimées en 3D de haute précision pour les particuliers et les professionnels.
-          Chaque support est conçu et fabriqué en France.
+          <span id="t-hero-sub">Des pièces imprimées en 3D de haute précision pour les particuliers et les professionnels. Chaque support est conçu et fabriqué en France.</span>
         </p>
         <div class="hero-cta">
-          <a href="#catalogue" class="btn-primary"><span data-fr="Voir le catalogue →" data-en="View catalogue →">Voir le catalogue →</span></a>
-          <a href="#custom" class="btn-secondary"><span data-fr="Commande sur mesure" data-en="Custom order">Commande sur mesure</span></a>
+          <a href="#catalogue" class="btn-primary"><span data-fr="Voir le catalogue →" data-en="View catalogue →"><span id="t-btn-catalogue">Voir le catalogue →</span></span></a>
+          <a href="#custom" class="btn-secondary"><span data-fr="Commande sur mesure" data-en="Custom order"><span id="t-btn-custom">Commande sur mesure</span></span></a>
         </div>
       </div>
       <div class="hero-center">
@@ -866,7 +865,7 @@
         <div class="hero-stats">
           <div class="stat">
             <div class="stat-num">FR</div>
-            <div class="stat-label"><span data-fr="Fabriqué en France" data-en="Made in France">Fabriqué en France</span></div>
+            <div class="stat-label"><span data-fr="Fabriqué en France" data-en="Made in France"><span id="t-stat-fr">Fabriqué en France</span></span></div>
           </div>
         </div>
       </div>
@@ -878,7 +877,7 @@
     <div class="catalogue-header">
       <div>
         <div class="section-tag">Produits</div>
-        <h2 class="section-title"><span data-fr="Notre Catalogue" data-en="Our Catalogue">Notre Catalogue</span></h2>
+        <h2 class="section-title"><span data-fr="Notre Catalogue" data-en="Our Catalogue"><span id="t-catalogue-title">Notre Catalogue</span></span></h2>
       </div>
       <p class="catalogue-desc">Supports conçus spécifiquement pour les enceintes colonnes Electro-Voice Evolve. Imprimés en PETG haute résistance.</p>
     </div>
@@ -893,7 +892,7 @@
         </div>
         <div class="product-info">
           <div class="product-ref">REF-SE50-TOP</div>
-          <h3 class="product-name"><span data-fr="Support Electro-Voice Evolve 50" data-en="Electro-Voice Evolve 50 Stand">Support Electro-Voice Evolve 50</span></h3>
+          <h3 class="product-name"><span data-fr="Support Electro-Voice Evolve 50" data-en="Electro-Voice Evolve 50 Stand"><span id="t-p1-name">Support Electro-Voice Evolve 50</span></span></h3>
           <p class="product-desc">Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 50. Surface plane et stable pour poser votre matériel.</p>
           <div class="product-specs">
             <span class="spec-tag">PETG</span>
@@ -922,7 +921,7 @@
         </div>
         <div class="product-info">
           <div class="product-ref">REF-SE70-TOP</div>
-          <h3 class="product-name"><span data-fr="Support Electro-Voice Evolve 70/90" data-en="Electro-Voice Evolve 70/90 Stand">Support Electro-Voice Evolve 70/90</span></h3>
+          <h3 class="product-name"><span data-fr="Support Electro-Voice Evolve 70/90" data-en="Electro-Voice Evolve 70/90 Stand"><span id="t-p2-name">Support Electro-Voice Evolve 70/90</span></span></h3>
           <p class="product-desc">Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 70/90. Fixation précise et maintien optimal.</p>
           <div class="product-specs">
             <span class="spec-tag">PETG</span>
@@ -950,8 +949,8 @@
         </div>
         <div class="product-info">
           <div class="product-ref">REF-CUSTOM</div>
-          <h3 class="product-name"><span data-fr="Commande Personnalisée" data-en="Custom Order">Commande Personnalisée</span></h3>
-          <p class="product-desc"><span data-fr="Votre pièce n'est pas dans le catalogue ? Je conçois et imprime une pièce adaptée à votre besoin. Envoyez-moi le modèle, les dimensions ou le CAD." data-en="Your part is not in the catalogue? I design and print a custom piece for your needs. Send me the model, dimensions or CAD file.">Votre pièce n'est pas dans le catalogue ? Je conçois et imprime une pièce adaptée à votre besoin. Envoyez-moi le modèle, les dimensions ou le CAD.</span></p>
+          <h3 class="product-name"><span data-fr="Commande Personnalisée" data-en="Custom Order"><span id="t-p3-name">Commande Personnalisée</span></span></h3>
+          <p class="product-desc"><span data-fr="Votre pièce n'est pas dans le catalogue ? Je conçois et imprime une pièce adaptée à votre besoin. Envoyez-moi le modèle, les dimensions ou le CAD." data-en="Your part is not in the catalogue? I design and print a custom piece for your needs. Send me the model, dimensions or CAD file."><span id="t-p3-desc">Votre pièce n'est pas dans le catalogue ? Je conçois et imprime une pièce adaptée à votre besoin. Envoyez-moi le modèle, les dimensions ou le CAD.</span></span></p>
           <div class="product-specs">
             <span class="spec-tag"><span data-fr="Sur devis" data-en="On quote">Sur devis</span></span>
             <span class="spec-tag"><span data-fr="Tout modèle" data-en="Any model">Tout modèle</span></span>
@@ -972,9 +971,9 @@
     <div class="custom-grid">
       <div>
         <div class="section-tag"><span data-fr="Personnalisation" data-en="Customization">Personnalisation</span></div>
-        <h2 class="section-title"><span data-fr="Commande Sur Mesure" data-en="Custom Order">Commande<br>Sur Mesure</span></h2>
+        <h2 class="section-title"><span data-fr="Commande Sur Mesure" data-en="Custom Order"><span id="t-custom-title">Commande Sur Mesure</span></span></h2>
         <p style="color:var(--gray); line-height:1.7; font-size:0.95rem; margin-top:1rem; max-width:400px;">
-        Vous avez une pièce spécifique ou un besoin particulier ? Je conçois et fabrique des pièces en 3D sur mesure.
+        <span id="t-custom-desc">Vous avez une pièce spécifique ou un besoin particulier ? Je conçois et fabrique des pièces en 3D sur mesure.</span>
         </p>
         <div class="custom-steps">
           <div class="step" data-step>
@@ -1001,17 +1000,17 @@
         </div>
       </div>
       <div class="custom-form-box">
-        <h3><span data-fr="Demande de Devis" data-en="Quote Request">Demande de Devis</span></h3>
+        <h3><span data-fr="Demande de Devis" data-en="Quote Request"><span id="t-form-title">Demande de Devis</span></span></h3>
         <div class="form-group">
-          <label>Votre prénom & nom</label>
+          <label><span id="t-form-name">Votre prénom & nom</span></label>
           <input type="text" placeholder="Jean Dupont" />
         </div>
         <div class="form-group">
-          <label>Email</label>
+          <label><span id="t-form-email">Email</span></label>
           <input type="email" placeholder="jean@exemple.fr" />
         </div>
         <div class="form-group">
-          <label>Type d'impression souhaité</label>
+          <label><span id="t-form-type">Type d'impression souhaité</span></label>
           <select>
             <option value="">— Sélectionnez —</option>
             <option>Impression décorative</option>
@@ -1020,10 +1019,10 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Détails & précisions</label>
+          <label><span id="t-form-details">Détails & précisions</span></label>
           <textarea placeholder="Dimensions, couleur souhaitée, quantité, utilisation..."></textarea>
         </div>
-        <button class="submit-btn" onclick="submitForm()"><span data-fr="Envoyer ma demande →" data-en="Send my request →">Envoyer ma demande →</span></button>
+        <button class="submit-btn" onclick="submitForm()"><span data-fr="Envoyer ma demande →" data-en="Send my request →"><span id="t-form-submit">Envoyer ma demande →</span></span></button>
       </div>
     </div>
   </section>
@@ -1031,22 +1030,22 @@
   <!-- WHY -->
   <section id="why">
     <div class="section-tag"><span data-fr="Pourquoi CRIX 3D" data-en="Why CRIX 3D">Pourquoi CRIX 3D</span></div>
-    <h2 class="section-title"><span data-fr="Qualité & Précision" data-en="Quality & Precision">Qualité & Précision</span></h2>
+    <h2 class="section-title"><span data-fr="Qualité & Précision" data-en="Quality & Precision"><span id="t-why-title">Qualité & Précision</span></span></h2>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon">🎯</div>
-        <div class="why-title"><span data-fr="Conception sur mesure" data-en="Custom design">Conception sur mesure</span></div>
-        <p class="why-desc"><span data-fr="Chaque pièce est modélisée pour s'adapter parfaitement à votre équipement. Pas de compromis." data-en="Every part is modelled to perfectly fit your equipment. No compromise.">Chaque pièce est modélisée pour s'adapter parfaitement à votre équipement. Pas de compromis.</span></p>
+        <div class="why-title"><span data-fr="Conception sur mesure" data-en="Custom design"><span id="t-why1-title">Conception sur mesure</span></span></div>
+        <p class="why-desc"><span data-fr="Chaque pièce est modélisée pour s'adapter parfaitement à votre équipement. Pas de compromis." data-en="Every part is modelled to perfectly fit your equipment. No compromise."><span id="t-why1-desc">Chaque pièce est modélisée pour s'adapter parfaitement à votre équipement. Pas de compromis.</span></span></p>
       </div>
       <div class="why-card">
         <div class="why-icon">🏭</div>
-        <div class="why-title">Fabriqué en France</div>
-        <p class="why-desc"><span data-fr="Impression réalisée localement sur Bambu Lab X1 Carbon, l'une des meilleures imprimantes du marché." data-en="Printing done locally on a Bambu Lab X1 Carbon, one of the best printers on the market.">Impression réalisée localement sur Bambu Lab X1 Carbon, l'une des meilleures imprimantes du marché.</span></p>
+        <div class="why-title"><span id="t-stat-fr">Fabriqué en France</span></div>
+        <p class="why-desc"><span data-fr="Impression réalisée localement sur Bambu Lab X1 Carbon, l'une des meilleures imprimantes du marché." data-en="Printing done locally on a Bambu Lab X1 Carbon, one of the best printers on the market."><span id="t-why2-desc">Impression réalisée localement sur Bambu Lab X1 Carbon, l'une des meilleures imprimantes du marché.</span></span></p>
       </div>
       <div class="why-card">
         <div class="why-icon">⚡</div>
-        <div class="why-title"><span data-fr="Livraison" data-en="Delivery">Livraison</span></div>
-        <p class="why-desc"><span data-fr="Délai de fabrication de 24 à 48h pour les produits en catalogue. Livraison variable selon destination." data-en="Manufacturing lead time of 24 to 48h for catalogue products. Delivery varies by destination.">Délai de fabrication de 24 à 48h pour les produits en catalogue. Livraison variable selon destination.</span></p>
+        <div class="why-title"><span data-fr="Livraison" data-en="Delivery"><span id="t-why3-title">Livraison</span></span></div>
+        <p class="why-desc"><span data-fr="Délai de fabrication de 24 à 48h pour les produits en catalogue. Livraison variable selon destination." data-en="Manufacturing lead time of 24 to 48h for catalogue products. Delivery varies by destination."><span id="t-why3-desc">Délai de fabrication de 24 à 48h pour les produits en catalogue. Livraison variable selon destination.</span></span></p>
       </div>
 
     </div>
@@ -1058,14 +1057,14 @@
       <div class="footer-brand">
         <img src="CRIX_3D_FINI.jpg" alt="CRIX 3D" style="height:60px; width:auto; object-fit:contain; border-radius:4px;" onerror="this.style.display='none'"/>
         <p style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:0.08em; margin-bottom:0.8rem;">CRIX 3D</p>
-        <p>Impression 3D & gravure laser en France. Supports et accessoires sur mesure pour vos équipements audio professionnels.</p>
+        <p><span id="t-footer-desc">Impression 3D & gravure laser en France. Supports et accessoires sur mesure pour vos équipements.</span></p>
       </div>
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="#catalogue">Catalogue</a></li>
-          <li><a href="#custom">Sur mesure</a></li>
-          <li><a href="#why">À propos</a></li>
+          <li><a href="#catalogue"><span id="t-nav-catalogue">Catalogue</span></a></li>
+          <li><a href="#custom"><span id="t-nav-custom">Sur mesure</span></a></li>
+          <li><a href="#why"><span id="t-nav-about">À propos</span></a></li>
           <li><a href="/cdn-cgi/l/email-protection#dfbcadb6a7a7ecbb9fb8b2beb6b3f1bcb0b2">✉ <span class="__cf_email__" data-cfemail="5d3e2f3425256e391d3a303c3431733e3230">[email&#160;protected]</span></a></li>
       <li><a href="https://instagram.com/crix_3d" target="_blank">📷 @crix_3d</a></li>
         </ul>
@@ -1125,7 +1124,7 @@
       const items = document.getElementById('cartItems');
       const footer = document.getElementById('cartFooter');
       if (count === 0) {
-        items.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">🛒</div><p>Panier vide</p></div>';
+        items.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">🛒</div><p><span id="t-cart-empty">Panier vide</span></p></div>';
         footer.style.display = 'none';
       } else {
         items.innerHTML = cart.map(i => `
@@ -1159,37 +1158,105 @@
 
 
     // LANGUAGE TOGGLE
-    const translations = {
-      'fr': {}, 'en': {}
+    const TRANSLATIONS = {
+      fr: {
+        't-panier': 'Panier',
+        't-hero-tag': 'Impression 3D & Gravure Laser',
+        't-hero-sub': 'Des pièces imprimées en 3D de haute précision pour les particuliers et les professionnels. Chaque support est conçu et fabriqué en France.',
+        't-btn-catalogue': 'Voir le catalogue →',
+        't-btn-custom': 'Commande sur mesure',
+        't-stat-fr': 'Fabriqué en France',
+        't-nav-catalogue': 'Catalogue',
+        't-nav-custom': 'Sur mesure',
+        't-nav-about': 'À propos',
+        't-catalogue-title': 'Notre Catalogue',
+        't-catalogue-desc': "Supports conçus spécifiquement pour les enceintes colonnes Electro-Voice Evolve. Imprimés en PETG haute résistance.",
+        't-p1-name': 'Support Electro-Voice Evolve 50',
+        't-p1-desc': "Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 50. Surface plane et stable pour poser votre matériel.",
+        't-p2-name': 'Support Electro-Voice Evolve 70/90',
+        't-p2-desc': "Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 70/90. Fixation précise et maintien optimal.",
+        't-p3-name': 'Commande Personnalisée',
+        't-p3-desc': "Votre pièce n'est pas dans le catalogue ? Je conçois et imprime une pièce adaptée à votre besoin. Envoyez-moi le modèle, les dimensions ou le CAD.",
+        't-custom-title': 'Commande Sur Mesure',
+        't-custom-desc': "Vous avez une pièce spécifique ou un besoin particulier ? Je conçois et fabrique des pièces en 3D sur mesure.",
+        't-why-title': 'Qualité & Précision',
+        't-why1-title': 'Conception sur mesure',
+        't-why1-desc': "Chaque pièce est modélisée pour s'adapter parfaitement à votre équipement. Pas de compromis.",
+        't-why2-desc': "Impression réalisée localement sur Bambu Lab X1 Carbon, l'une des meilleures imprimantes du marché.",
+        't-why3-title': 'Livraison',
+        't-why3-desc': 'Délai de fabrication de 24 à 48h pour les produits en catalogue. Livraison variable selon destination.',
+        't-cart-title': 'Mon Panier',
+        't-cart-empty': 'Panier vide',
+        't-checkout': 'Procéder au paiement →',
+        't-form-title': 'Demande de Devis',
+        't-form-name': 'Votre prénom & nom',
+        't-form-email': 'Email',
+        't-form-type': "Type d'impression souhaité",
+        't-form-details': 'Détails & précisions',
+        't-form-submit': 'Envoyer ma demande →',
+        't-footer-desc': "Impression 3D & gravure laser en France. Supports et accessoires sur mesure pour vos équipements.",
+      },
+      en: {
+        't-panier': 'Cart',
+        't-hero-tag': '3D Printing & Laser Engraving',
+        't-hero-sub': 'High precision 3D printed parts for individuals and professionals. Each part is designed and manufactured in France.',
+        't-btn-catalogue': 'View catalogue →',
+        't-btn-custom': 'Custom order',
+        't-stat-fr': 'Made in France',
+        't-nav-catalogue': 'Catalogue',
+        't-nav-custom': 'Custom',
+        't-nav-about': 'About',
+        't-catalogue-title': 'Our Catalogue',
+        't-catalogue-desc': 'Stands specifically designed for Electro-Voice Evolve column speakers. Made from high-resistance PETG.',
+        't-p1-name': 'Electro-Voice Evolve 50 Stand',
+        't-p1-desc': 'Custom 3D printed top tray designed for the Electro-Voice Evolve 50 column. Flat and stable surface for your equipment.',
+        't-p2-name': 'Electro-Voice Evolve 70/90 Stand',
+        't-p2-desc': 'Custom 3D printed top tray designed for the Electro-Voice Evolve 70/90 column. Precise fit and optimal hold.',
+        't-p3-name': 'Custom Order',
+        't-p3-desc': "Your part is not in the catalogue? I design and print a custom piece for your needs. Send me the model, dimensions or CAD file.",
+        't-custom-title': 'Custom Order',
+        't-custom-desc': 'Do you have a specific part or a particular need? I design and manufacture custom 3D printed parts.',
+        't-why-title': 'Quality & Precision',
+        't-why1-title': 'Custom design',
+        't-why1-desc': 'Every part is modelled to perfectly fit your equipment. No compromise.',
+        't-why2-desc': 'Printing done locally on a Bambu Lab X1 Carbon, one of the best printers on the market.',
+        't-why3-title': 'Delivery',
+        't-why3-desc': 'Manufacturing lead time of 24 to 48h for catalogue products. Delivery varies by destination.',
+        't-cart-title': 'My Cart',
+        't-cart-empty': 'Cart is empty',
+        't-checkout': 'Proceed to checkout →',
+        't-form-title': 'Quote Request',
+        't-form-name': 'Your first & last name',
+        't-form-email': 'Email',
+        't-form-type': 'Type of print desired',
+        't-form-details': 'Details & specifications',
+        't-form-submit': 'Send my request →',
+        't-footer-desc': '3D printing & laser engraving in France. Custom parts and accessories for your equipment.',
+      }
     };
+
     function setLang(lang) {
       document.documentElement.lang = lang;
-      // Update all spans with data-fr/data-en
-      document.querySelectorAll('[data-fr]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + lang) || el.getAttribute('data-fr');
+      const dict = TRANSLATIONS[lang];
+      Object.keys(dict).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = dict[id];
       });
-      // Update buttons
       document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      // Update placeholders and labels
-      if (lang === 'en') {
-        document.querySelector('[placeholder="Jean Dupont"]') && (document.querySelector('[placeholder="Jean Dupont"]').placeholder = 'John Smith');
-        document.querySelector('[placeholder="jean@exemple.fr"]') && (document.querySelector('[placeholder="jean@exemple.fr"]').placeholder = 'john@example.com');
-        document.querySelector('[placeholder="Dimensions, couleur souhaitée, quantité, utilisation..."]') && (document.querySelector('[placeholder="Dimensions, couleur souhaitée, quantité, utilisation..."]').placeholder = 'Dimensions, desired color, quantity, usage...');
-      } else {
-        document.querySelector('[placeholder="John Smith"]') && (document.querySelector('[placeholder="John Smith"]').placeholder = 'Jean Dupont');
-        document.querySelector('[placeholder="john@example.com"]') && (document.querySelector('[placeholder="john@example.com"]').placeholder = 'jean@exemple.fr');
-        document.querySelector('[placeholder="Dimensions, desired color, quantity, usage..."]') && (document.querySelector('[placeholder="Dimensions, desired color, quantity, usage..."]').placeholder = 'Dimensions, couleur souhaitée, quantité, utilisation...');
-      }
+      // Placeholders
+      const placeholders = {
+        fr: { name: 'Jean Dupont', email: 'jean@exemple.fr', details: 'Dimensions, couleur souhaitée, quantité, utilisation...' },
+        en: { name: 'John Smith', email: 'john@example.com', details: 'Dimensions, desired color, quantity, usage...' }
+      };
+      const p = placeholders[lang];
+      document.querySelectorAll('input[type=text]')[0] && (document.querySelectorAll('input[type=text]')[0].placeholder = p.name);
+      document.querySelectorAll('input[type=email]')[0] && (document.querySelectorAll('input[type=email]')[0].placeholder = p.email);
+      document.querySelector('textarea') && (document.querySelector('textarea').placeholder = p.details);
       // Printer status
-      if (lang === 'en') {
-        window._lang = 'en';
-      } else {
-        window._lang = 'fr';
-      }
+      window._lang = lang;
       localStorage.setItem('lang', lang);
     }
-    // Auto-detect language on load
     window.addEventListener('load', () => {
       const saved = localStorage.getItem('lang');
       if (saved) setLang(saved);

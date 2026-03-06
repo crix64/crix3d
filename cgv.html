@@ -139,6 +139,12 @@
     }
     footer a { color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
+
+    .lang-toggle { display:flex; align-items:center; gap:0.3rem; }
+    .lang-btn { background:none; border:none; font-family:'DM Mono',monospace; font-size:0.72rem; letter-spacing:0.15em; color:var(--gray); cursor:pointer; padding:0.3rem 0.4rem; transition:color 0.2s; }
+    .lang-btn.active { color:var(--accent); font-weight:600; }
+    .lang-btn:hover { color:var(--white); }
+    .lang-sep { color:var(--gray-dark); font-size:0.7rem; }
   </style>
 </head>
 <body>
@@ -148,13 +154,20 @@
       <img src="CRIX_3D_FINI.jpg" alt="CRIX 3D" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
       <span style="display:none;">CRIX 3D</span>
     </a>
-    <a href="index.html" class="nav-back">← Retour au site</a>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="index.html" class="nav-back"><span id="t-back">← Retour au site</span></a>
+    </div>
   </nav>
 
   <div class="container">
 
-    <div class="page-tag">Légal</div>
-    <h1>Conditions Générales de Vente</h1>
+    <div class="page-tag"><span id="t-tag">Légal</span></div>
+    <h1><span id="t-title">Conditions Générales de Vente</span></h1>
     <p class="update-date">Dernière mise à jour : 2025</p>
 
     <div class="disclaimer-box">
@@ -227,5 +240,35 @@
     <p><a href="index.html">← Retour au site</a></p>
   </footer>
 
+
+  <script>
+    const CGV_TRANSLATIONS = {
+      fr: {
+        't-back': '← Retour au site',
+        't-tag': 'Légal',
+        't-title': 'Conditions Générales de Vente',
+      },
+      en: {
+        't-back': '← Back to site',
+        't-tag': 'Legal',
+        't-title': 'General Terms and Conditions',
+      }
+    };
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      const dict = CGV_TRANSLATIONS[lang];
+      Object.keys(dict).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = dict[id];
+      });
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      localStorage.setItem('lang', lang);
+    }
+    window.addEventListener('load', () => {
+      const saved = localStorage.getItem('lang');
+      if (saved) setLang(saved);
+    });
+  </script>
 </body>
 </html>
