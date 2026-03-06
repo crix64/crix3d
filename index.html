@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" id="html-root">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -81,6 +81,7 @@
     .nav-dropdown-menu a:hover { background: #1a1a1a; color: var(--white) !important; }
 
     /* NAV CART */
+    .nav-cart {
       display: flex; align-items: center; gap: 0.5rem;
       background: var(--accent);
       color: var(--white);
@@ -757,6 +758,24 @@
       .why-grid { grid-template-columns: 1fr; }
       .catalogue-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
     }
+
+    .lang-toggle {
+      display: flex; align-items: center; gap: 0.3rem;
+      margin-right: 1rem;
+    }
+    .lang-btn {
+      background: none; border: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      color: var(--gray);
+      cursor: pointer;
+      padding: 0.3rem 0.4rem;
+      transition: color 0.2s;
+    }
+    .lang-btn.active { color: var(--accent); font-weight: 600; }
+    .lang-btn:hover { color: var(--white); }
+    .lang-sep { color: var(--gray-dark); font-size: 0.7rem; }
   </style>
 </head>
 <body>
@@ -798,16 +817,21 @@
     </a>
     <ul class="nav-links">
       <li><a href="#catalogue">Catalogue</a></li>
-      <li><a href="#custom">Sur mesure</a></li>
-      <li><a href="#why">À propos</a></li>
+      <li><a href="#custom"><span data-fr="Sur mesure" data-en="Custom order"><span data-fr="Sur mesure" data-en="Custom">Sur mesure</span></span></a></li>
+      <li><a href="#why"><span data-fr="À propos" data-en="About">À propos</span></a></li>
       <li class="nav-dropdown">
         <a href="#" onclick="return false;">Contact ▾</a>
         <div class="nav-dropdown-menu">
-          <a href="mailto:crixx3d@gmail.com">✉ crixx3d@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#492a3b2031317a2d092e24282025672a2624">✉ <span class="__cf_email__" data-cfemail="80e3f2e9f8f8b3e4c0e7ede1e9ecaee3efed">[email&#160;protected]</span></a>
           <a href="https://instagram.com/crix_3d" target="_blank">📷 @crix_3d</a>
         </div>
       </li>
     </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
     <button class="nav-cart" onclick="openCart()">
       🛒 Panier <span class="cart-count" id="cartCount">0</span>
     </button>
@@ -819,7 +843,7 @@
     <div class="hero-grid"></div>
     <div class="hero-content">
       <div class="hero-left">
-        <div class="hero-tag">Impression 3D & Gravure Laser</div>
+        <div class="hero-tag"><span data-fr="Impression 3D & Gravure Laser" data-en="3D Printing & Laser Engraving">Impression 3D & Gravure Laser</span></div>
         <h1 class="hero-title">
           CRIX<br><span>3D</span>
         </h1>
@@ -828,8 +852,8 @@
           Chaque support est conçu et fabriqué en France.
         </p>
         <div class="hero-cta">
-          <a href="#catalogue" class="btn-primary">Voir le catalogue →</a>
-          <a href="#custom" class="btn-secondary">Commande sur mesure</a>
+          <a href="#catalogue" class="btn-primary"><span data-fr="Voir le catalogue →" data-en="View catalogue →">Voir le catalogue →</span></a>
+          <a href="#custom" class="btn-secondary"><span data-fr="Commande sur mesure" data-en="Custom order">Commande sur mesure</span></a>
         </div>
       </div>
       <div class="hero-center">
@@ -842,7 +866,7 @@
         <div class="hero-stats">
           <div class="stat">
             <div class="stat-num">FR</div>
-            <div class="stat-label">Fabriqué en France</div>
+            <div class="stat-label"><span data-fr="Fabriqué en France" data-en="Made in France">Fabriqué en France</span></div>
           </div>
         </div>
       </div>
@@ -854,7 +878,7 @@
     <div class="catalogue-header">
       <div>
         <div class="section-tag">Produits</div>
-        <h2 class="section-title">Notre Catalogue</h2>
+        <h2 class="section-title"><span data-fr="Notre Catalogue" data-en="Our Catalogue">Notre Catalogue</span></h2>
       </div>
       <p class="catalogue-desc">Supports conçus spécifiquement pour les enceintes colonnes Electro-Voice Evolve. Imprimés en PETG haute résistance.</p>
     </div>
@@ -863,28 +887,28 @@
       <!-- PRODUIT 1 -->
       <div class="product-card">
         <div class="product-img-placeholder">
-          <div class="product-badge">Disponible</div>
+          <div class="product-badge"><span data-fr="Disponible" data-en="Available">Disponible</span></div>
           <div class="placeholder-icon">🔊</div>
-          <div class="placeholder-label">Photo à venir</div>
+          <div class="placeholder-label"><span data-fr="Photo à venir" data-en="Photo coming soon">Photo à venir</span></div>
         </div>
         <div class="product-info">
           <div class="product-ref">REF-SE50-TOP</div>
-          <h3 class="product-name">Support Electro-Voice Evolve 50</h3>
+          <h3 class="product-name"><span data-fr="Support Electro-Voice Evolve 50" data-en="Electro-Voice Evolve 50 Stand">Support Electro-Voice Evolve 50</span></h3>
           <p class="product-desc">Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 50. Surface plane et stable pour poser votre matériel.</p>
           <div class="product-specs">
             <span class="spec-tag">PETG</span>
             <span class="spec-tag">Evolve 50</span>
-            <span class="spec-tag">Montage sans outil</span>
+            <span class="spec-tag"><span data-fr="Montage sans outil" data-en="Tool-free assembly">Montage sans outil</span></span>
           </div>
           <div class="color-choice">
-            <span class="color-label">Couleur :</span>
+            <span class="color-label"><span data-fr="Couleur :" data-en="Color:">Couleur :</span></span>
             <button class="color-btn active" data-color="Noir" onclick="selectColor(this)" style="background:#111; border:2px solid #e8410a;"></button>
             <button class="color-btn" data-color="Blanc" onclick="selectColor(this)" style="background:#f0f0f0; border:2px solid transparent;"></button>
             <span class="color-selected">Noir</span>
           </div>
           <div class="product-footer">
-            <div class="product-price">24 <span>€ TTC</span></div>
-            <button class="add-to-cart" onclick="addToCartColor(this, 'Support Electro-Voice Evolve 50', 24)">+ Ajouter</button>
+            <div class="product-price">24 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;">Hors frais de livraison</small></span></div>
+            <button class="add-to-cart" onclick="addToCartColor(this, 'Support Electro-Voice Evolve 50', 24)"><span data-fr="+ Ajouter" data-en="+ Add">+ Ajouter</span></button>
           </div>
         </div>
       </div>
@@ -898,11 +922,11 @@
         </div>
         <div class="product-info">
           <div class="product-ref">REF-SE70-TOP</div>
-          <h3 class="product-name">Support Electro-Voice Evolve 70</h3>
-          <p class="product-desc">Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 70. Fixation précise et maintien optimal.</p>
+          <h3 class="product-name"><span data-fr="Support Electro-Voice Evolve 70/90" data-en="Electro-Voice Evolve 70/90 Stand">Support Electro-Voice Evolve 70/90</span></h3>
+          <p class="product-desc">Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 70/90. Fixation précise et maintien optimal.</p>
           <div class="product-specs">
             <span class="spec-tag">PETG</span>
-            <span class="spec-tag">Evolve 70</span>
+            <span class="spec-tag">Evolve 70/90</span>
             <span class="spec-tag">Montage sans outil</span>
           </div>
           <div class="color-choice">
@@ -912,8 +936,8 @@
             <span class="color-selected">Noir</span>
           </div>
           <div class="product-footer">
-            <div class="product-price">28 <span>€ TTC</span></div>
-            <button class="add-to-cart" onclick="addToCartColor(this, 'Support Electro-Voice Evolve 70', 28)">+ Ajouter</button>
+            <div class="product-price">28 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;">Hors frais de livraison</small></span></div>
+            <button class="add-to-cart" onclick="addToCartColor(this, 'Support Electro-Voice Evolve 70/90', 28)">+ Ajouter</button>
           </div>
         </div>
       </div>
@@ -926,16 +950,16 @@
         </div>
         <div class="product-info">
           <div class="product-ref">REF-CUSTOM</div>
-          <h3 class="product-name">Commande Personnalisée</h3>
-          <p class="product-desc">Votre pièce n'est pas dans le catalogue ? Je conçois et imprime une pièce adaptée à votre besoin. Envoyez-moi le modèle, les dimensions ou le CAD.</p>
+          <h3 class="product-name"><span data-fr="Commande Personnalisée" data-en="Custom Order">Commande Personnalisée</span></h3>
+          <p class="product-desc"><span data-fr="Votre pièce n'est pas dans le catalogue ? Je conçois et imprime une pièce adaptée à votre besoin. Envoyez-moi le modèle, les dimensions ou le CAD." data-en="Your part is not in the catalogue? I design and print a custom piece for your needs. Send me the model, dimensions or CAD file.">Votre pièce n'est pas dans le catalogue ? Je conçois et imprime une pièce adaptée à votre besoin. Envoyez-moi le modèle, les dimensions ou le CAD.</span></p>
           <div class="product-specs">
-            <span class="spec-tag">Sur devis</span>
-            <span class="spec-tag">Tout modèle</span>
-            <span class="spec-tag">Délai à définir</span>
+            <span class="spec-tag"><span data-fr="Sur devis" data-en="On quote">Sur devis</span></span>
+            <span class="spec-tag"><span data-fr="Tout modèle" data-en="Any model">Tout modèle</span></span>
+            <span class="spec-tag"><span data-fr="Délai à définir" data-en="Lead time TBD">Délai à définir</span></span>
           </div>
           <div class="product-footer">
             <div class="product-price" style="font-size:1.2rem; display:flex; align-items:center;">Sur devis</div>
-            <a href="#custom" class="add-to-cart" style="text-decoration:none;">Demander →</a>
+            <a href="#custom" class="add-to-cart" style="text-decoration:none;"><span data-fr="Demander →" data-en="Request →">Demander →</span></a>
           </div>
         </div>
       </div>
@@ -947,8 +971,8 @@
   <section id="custom">
     <div class="custom-grid">
       <div>
-        <div class="section-tag">Personnalisation</div>
-        <h2 class="section-title">Commande<br>Sur Mesure</h2>
+        <div class="section-tag"><span data-fr="Personnalisation" data-en="Customization">Personnalisation</span></div>
+        <h2 class="section-title"><span data-fr="Commande Sur Mesure" data-en="Custom Order">Commande<br>Sur Mesure</span></h2>
         <p style="color:var(--gray); line-height:1.7; font-size:0.95rem; margin-top:1rem; max-width:400px;">
         Vous avez une pièce spécifique ou un besoin particulier ? Je conçois et fabrique des pièces en 3D sur mesure.
         </p>
@@ -956,28 +980,28 @@
           <div class="step" data-step>
             <div class="step-num">01</div>
             <div class="step-content">
-              <h4>Envoyez votre demande</h4>
-              <p>Décrivez votre modèle et vos besoins via le formulaire ci-contre.</p>
+              <h4><span data-fr="Envoyez votre demande" data-en="Send your request">Envoyez votre demande</span></h4>
+              <p><span data-fr="Décrivez votre modèle et vos besoins via le formulaire ci-contre." data-en="Describe your model and needs using the form opposite.">Décrivez votre modèle et vos besoins via le formulaire ci-contre.</span></p>
             </div>
           </div>
           <div class="step" data-step>
             <div class="step-num">02</div>
             <div class="step-content">
-              <h4>Devis sous 48h</h4>
-              <p>Je vous envoie un devis détaillé selon les informations fournies.</p>
+              <h4><span data-fr="Devis sous 48h" data-en="Quote within 48h">Devis sous 48h</span></h4>
+              <p><span data-fr="Je vous envoie un devis détaillé selon les informations fournies." data-en="I will send you a detailed quote based on the information provided.">Je vous envoie un devis détaillé selon les informations fournies.</span></p>
             </div>
           </div>
           <div class="step" data-step>
             <div class="step-num">03</div>
             <div class="step-content">
-              <h4>Fabrication & expédition</h4>
-              <p>Expédition en fonction du délai de fabrication et de la destination après validation.</p>
+              <h4><span data-fr="Fabrication & expédition" data-en="Manufacturing & shipping">Fabrication & expédition</span></h4>
+              <p><span data-fr="Expédition en fonction du délai de fabrication et de la destination après validation." data-en="Shipping depends on manufacturing lead time and destination after validation.">Expédition en fonction du délai de fabrication et de la destination après validation.</span></p>
             </div>
           </div>
         </div>
       </div>
       <div class="custom-form-box">
-        <h3>Demande de Devis</h3>
+        <h3><span data-fr="Demande de Devis" data-en="Quote Request">Demande de Devis</span></h3>
         <div class="form-group">
           <label>Votre prénom & nom</label>
           <input type="text" placeholder="Jean Dupont" />
@@ -999,30 +1023,30 @@
           <label>Détails & précisions</label>
           <textarea placeholder="Dimensions, couleur souhaitée, quantité, utilisation..."></textarea>
         </div>
-        <button class="submit-btn" onclick="submitForm()">Envoyer ma demande →</button>
+        <button class="submit-btn" onclick="submitForm()"><span data-fr="Envoyer ma demande →" data-en="Send my request →">Envoyer ma demande →</span></button>
       </div>
     </div>
   </section>
 
   <!-- WHY -->
   <section id="why">
-    <div class="section-tag">Pourquoi CRIX 3D</div>
-    <h2 class="section-title">Qualité & Précision</h2>
+    <div class="section-tag"><span data-fr="Pourquoi CRIX 3D" data-en="Why CRIX 3D">Pourquoi CRIX 3D</span></div>
+    <h2 class="section-title"><span data-fr="Qualité & Précision" data-en="Quality & Precision">Qualité & Précision</span></h2>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon">🎯</div>
-        <div class="why-title">Conception sur mesure</div>
-        <p class="why-desc">Chaque pièce est modélisée pour s'adapter parfaitement à votre équipement. Pas de compromis.</p>
+        <div class="why-title"><span data-fr="Conception sur mesure" data-en="Custom design">Conception sur mesure</span></div>
+        <p class="why-desc"><span data-fr="Chaque pièce est modélisée pour s'adapter parfaitement à votre équipement. Pas de compromis." data-en="Every part is modelled to perfectly fit your equipment. No compromise.">Chaque pièce est modélisée pour s'adapter parfaitement à votre équipement. Pas de compromis.</span></p>
       </div>
       <div class="why-card">
         <div class="why-icon">🏭</div>
         <div class="why-title">Fabriqué en France</div>
-        <p class="why-desc">Impression réalisée localement sur Bambu Lab X1 Carbon, l'une des meilleures imprimantes du marché.</p>
+        <p class="why-desc"><span data-fr="Impression réalisée localement sur Bambu Lab X1 Carbon, l'une des meilleures imprimantes du marché." data-en="Printing done locally on a Bambu Lab X1 Carbon, one of the best printers on the market.">Impression réalisée localement sur Bambu Lab X1 Carbon, l'une des meilleures imprimantes du marché.</span></p>
       </div>
       <div class="why-card">
         <div class="why-icon">⚡</div>
-        <div class="why-title">Livraison</div>
-        <p class="why-desc">Délai de fabrication de 24 à 48h pour les produits en catalogue. Livraison variable selon destination.</p>
+        <div class="why-title"><span data-fr="Livraison" data-en="Delivery">Livraison</span></div>
+        <p class="why-desc"><span data-fr="Délai de fabrication de 24 à 48h pour les produits en catalogue. Livraison variable selon destination." data-en="Manufacturing lead time of 24 to 48h for catalogue products. Delivery varies by destination.">Délai de fabrication de 24 à 48h pour les produits en catalogue. Livraison variable selon destination.</span></p>
       </div>
 
     </div>
@@ -1042,7 +1066,7 @@
           <li><a href="#catalogue">Catalogue</a></li>
           <li><a href="#custom">Sur mesure</a></li>
           <li><a href="#why">À propos</a></li>
-          <li><a href="mailto:crixx3d@gmail.com">✉ crixx3d@gmail.com</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#dfbcadb6a7a7ecbb9fb8b2beb6b3f1bcb0b2">✉ <span class="__cf_email__" data-cfemail="5d3e2f3425256e391d3a303c3431733e3230">[email&#160;protected]</span></a></li>
       <li><a href="https://instagram.com/crix_3d" target="_blank">📷 @crix_3d</a></li>
         </ul>
       </div>
@@ -1065,7 +1089,7 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
     // COLOR SELECTION
     function selectColor(btn) {
@@ -1132,6 +1156,44 @@
 
     // FORM
     function submitForm() { showToast('✓ Demande envoyée ! Réponse sous 24h'); }
+
+
+    // LANGUAGE TOGGLE
+    const translations = {
+      'fr': {}, 'en': {}
+    };
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      // Update all spans with data-fr/data-en
+      document.querySelectorAll('[data-fr]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang) || el.getAttribute('data-fr');
+      });
+      // Update buttons
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      // Update placeholders and labels
+      if (lang === 'en') {
+        document.querySelector('[placeholder="Jean Dupont"]') && (document.querySelector('[placeholder="Jean Dupont"]').placeholder = 'John Smith');
+        document.querySelector('[placeholder="jean@exemple.fr"]') && (document.querySelector('[placeholder="jean@exemple.fr"]').placeholder = 'john@example.com');
+        document.querySelector('[placeholder="Dimensions, couleur souhaitée, quantité, utilisation..."]') && (document.querySelector('[placeholder="Dimensions, couleur souhaitée, quantité, utilisation..."]').placeholder = 'Dimensions, desired color, quantity, usage...');
+      } else {
+        document.querySelector('[placeholder="John Smith"]') && (document.querySelector('[placeholder="John Smith"]').placeholder = 'Jean Dupont');
+        document.querySelector('[placeholder="john@example.com"]') && (document.querySelector('[placeholder="john@example.com"]').placeholder = 'jean@exemple.fr');
+        document.querySelector('[placeholder="Dimensions, desired color, quantity, usage..."]') && (document.querySelector('[placeholder="Dimensions, desired color, quantity, usage..."]').placeholder = 'Dimensions, couleur souhaitée, quantité, utilisation...');
+      }
+      // Printer status
+      if (lang === 'en') {
+        window._lang = 'en';
+      } else {
+        window._lang = 'fr';
+      }
+      localStorage.setItem('lang', lang);
+    }
+    // Auto-detect language on load
+    window.addEventListener('load', () => {
+      const saved = localStorage.getItem('lang');
+      if (saved) setLang(saved);
+    });
 
     // SCROLL ANIMATIONS
     const steps = document.querySelectorAll('[data-step]');
@@ -1326,20 +1388,4 @@
 
         // Gentle scene rotation
         autoRotY += 0.003;
-        scene.rotation.y = Math.sin(autoRotY * 0.5) * 0.3;
-
-        renderer.render(scene, camera);
-      }
-      animate();
-
-      // Resize
-      window.addEventListener('resize', () => {
-        const nW = canvas.parentElement.clientWidth || 500;
-        camera.aspect = nW / H;
-        camera.updateProjectionMatrix();
-        renderer.setSize(nW, H);
-      });
-    })();
-  </script>
-</body>
-</html>
+        scene.rotation.y = Math.si
