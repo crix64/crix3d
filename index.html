@@ -876,7 +876,7 @@
   <section id="catalogue">
     <div class="catalogue-header">
       <div>
-        <div class="section-tag">Produits</div>
+        <div class="section-tag"><span id="t-section-produits">Produits</span></div>
         <h2 class="section-title"><span data-fr="Notre Catalogue" data-en="Our Catalogue"><span id="t-catalogue-title">Notre Catalogue</span></span></h2>
       </div>
       <p class="catalogue-desc">Supports conçus spécifiquement pour les enceintes colonnes Electro-Voice Evolve. Imprimés en PETG haute résistance.</p>
@@ -915,9 +915,9 @@
       <!-- PRODUIT 2 -->
       <div class="product-card">
         <div class="product-img-placeholder">
-          <div class="product-badge">Disponible</div>
+          <div class="product-badge"><span id="t-badge1">Disponible</span></div>
           <div class="placeholder-icon">🔊</div>
-          <div class="placeholder-label">Photo à venir</div>
+          <div class="placeholder-label"><span id="t-photo1">Photo à venir</span></div>
         </div>
         <div class="product-info">
           <div class="product-ref">REF-SE70-TOP</div>
@@ -926,10 +926,10 @@
           <div class="product-specs">
             <span class="spec-tag">PETG</span>
             <span class="spec-tag">Evolve 70/90</span>
-            <span class="spec-tag">Montage sans outil</span>
+            <span class="spec-tag"><span id="t-spec-montage1">Montage sans outil</span></span>
           </div>
           <div class="color-choice">
-            <span class="color-label">Couleur :</span>
+            <span class="color-label"><span id="t-couleur1">Couleur :</span></span>
             <button class="color-btn active" data-color="Noir" onclick="selectColor(this)" style="background:#111; border:2px solid #e8410a;"></button>
             <button class="color-btn" data-color="Blanc" onclick="selectColor(this)" style="background:#f0f0f0; border:2px solid transparent;"></button>
             <span class="color-selected">Noir</span>
@@ -945,7 +945,7 @@
       <div class="product-card">
         <div class="product-img-placeholder">
           <div class="placeholder-icon">⚙️</div>
-          <div class="placeholder-label">Sur mesure</div>
+          <div class="placeholder-label"><span id="t-sur-mesure-ph">Sur mesure</span></div>
         </div>
         <div class="product-info">
           <div class="product-ref">REF-CUSTOM</div>
@@ -1012,10 +1012,10 @@
         <div class="form-group">
           <label><span id="t-form-type">Type d'impression souhaité</span></label>
           <select>
-            <option value="">— Sélectionnez —</option>
-            <option>Impression décorative</option>
-            <option>Impression type mécanique</option>
-            <option>Autre (préciser dans le message)</option>
+            <option value="" id="t-select-default">— Sélectionnez —</option>
+            <option id="t-select-deco">Impression décorative</option>
+            <option id="t-select-meca">Impression type mécanique</option>
+            <option id="t-select-other">Autre (préciser dans le message)</option>
           </select>
         </div>
         <div class="form-group">
@@ -1060,7 +1060,7 @@
         <p><span id="t-footer-desc">Impression 3D & gravure laser en France. Supports et accessoires sur mesure pour vos équipements.</span></p>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <h4><span id="t-footer-nav">Navigation</span></h4>
         <ul>
           <li><a href="#catalogue"><span id="t-nav-catalogue">Catalogue</span></a></li>
           <li><a href="#custom"><span id="t-nav-custom">Sur mesure</span></a></li>
@@ -1070,12 +1070,12 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Infos</h4>
+        <h4><span id="t-footer-infos">Infos</span></h4>
         <ul>
-          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#"><span id="t-mentions">Mentions légales</span></a></li>
           <li><a href="#">CGV</a></li>
-          <li><a href="#">Politique de retour</a></li>
-          <li><a href="#">FAQ</a></li>
+          <li><a href="#"><span id="t-politique">Politique de retour</span></a></li>
+          <li><a href="#"><span id="t-faq">FAQ</span></a></li>
         </ul>
       </div>
     </div>
@@ -1084,7 +1084,7 @@
     </div>
     <div class="footer-bottom">
       <p>© 2025 CRIX 3D — Tous droits réservés</p>
-      <p>Fait avec ❤️ en France</p>
+      <p><span id="t-footer-made">Fait avec ❤️ en France</span></p>
     </div>
   </footer>
 
@@ -1195,6 +1195,21 @@
         't-form-details': 'Détails & précisions',
         't-form-submit': 'Envoyer ma demande →',
         't-footer-desc': "Impression 3D & gravure laser en France. Supports et accessoires sur mesure pour vos équipements.",
+        't-badge1': 'Disponible', 't-badge2': 'Disponible',
+        't-photo1': 'Photo à venir', 't-photo2': 'Photo à venir',
+        't-sur-mesure-ph': 'Sur mesure',
+        't-spec-montage1': 'Montage sans outil', 't-spec-montage2': 'Montage sans outil',
+        't-couleur1': 'Couleur :', 't-couleur2': 'Couleur :',
+        't-spec-devis': 'Sur devis', 't-spec-modele': 'Tout modèle', 't-spec-delai': 'Délai à définir',
+        't-step1-title': 'Envoyez votre demande', 't-step1-desc': 'Décrivez votre modèle et vos besoins via le formulaire ci-contre.',
+        't-step2-title': 'Devis sous 48h', 't-step2-desc': 'Je vous envoie un devis détaillé selon les informations fournies.',
+        't-step3-title': 'Fabrication & expédition', 't-step3-desc': 'Expédition en fonction du délai de fabrication et de la destination après validation.',
+        't-why2-title': 'Fabriqué en France',
+        't-section-produits': 'Produits', 't-section-perso': 'Personnalisation', 't-section-why': 'Pourquoi CRIX 3D',
+        't-footer-nav': 'Navigation', 't-footer-infos': 'Infos',
+        't-footer-catalogue': 'Catalogue', 't-footer-custom': 'Sur mesure', 't-footer-about': 'À propos',
+        't-mentions': 'Mentions légales', 't-politique': 'Politique de retour', 't-faq': 'FAQ',
+        't-footer-made': 'Fait avec ❤️ en France',
       },
       en: {
         't-panier': 'Cart',
@@ -1232,6 +1247,21 @@
         't-form-details': 'Details & specifications',
         't-form-submit': 'Send my request →',
         't-footer-desc': '3D printing & laser engraving in France. Custom parts and accessories for your equipment.',
+        't-badge1': 'Available', 't-badge2': 'Available',
+        't-photo1': 'Photo coming soon', 't-photo2': 'Photo coming soon',
+        't-sur-mesure-ph': 'Custom',
+        't-spec-montage1': 'Tool-free assembly', 't-spec-montage2': 'Tool-free assembly',
+        't-couleur1': 'Color:', 't-couleur2': 'Color:',
+        't-spec-devis': 'On quote', 't-spec-modele': 'Any model', 't-spec-delai': 'Lead time TBD',
+        't-step1-title': 'Send your request', 't-step1-desc': 'Describe your model and needs using the form opposite.',
+        't-step2-title': 'Quote within 48h', 't-step2-desc': 'I will send you a detailed quote based on the information provided.',
+        't-step3-title': 'Manufacturing & shipping', 't-step3-desc': 'Shipping depends on manufacturing lead time and destination after validation.',
+        't-why2-title': 'Made in France',
+        't-section-produits': 'Products', 't-section-perso': 'Customization', 't-section-why': 'Why CRIX 3D',
+        't-footer-nav': 'Navigation', 't-footer-infos': 'Info',
+        't-footer-catalogue': 'Catalogue', 't-footer-custom': 'Custom', 't-footer-about': 'About',
+        't-mentions': 'Legal notices', 't-politique': 'Return policy', 't-faq': 'FAQ',
+        't-footer-made': 'Made with ❤️ in France',
       }
     };
 
@@ -1255,6 +1285,16 @@
       document.querySelector('textarea') && (document.querySelector('textarea').placeholder = p.details);
       // Printer status
       window._lang = lang;
+
+      // Translate select options
+      const selectOpts = {
+        fr: { 't-select-default': '— Sélectionnez —', 't-select-deco': 'Impression décorative', 't-select-meca': 'Impression type mécanique', 't-select-other': 'Autre (préciser dans le message)' },
+        en: { 't-select-default': '— Select —', 't-select-deco': 'Decorative print', 't-select-meca': 'Mechanical type print', 't-select-other': 'Other (specify in message)' }
+      };
+      Object.keys(selectOpts[lang]).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = selectOpts[lang][id];
+      });
       localStorage.setItem('lang', lang);
     }
     window.addEventListener('load', () => {
@@ -1422,6 +1462,10 @@
       setInterval(() => {
         statusIdx = (statusIdx + 1) % statuses.length;
         statusEl.textContent = statuses[statusIdx];
+        if (window._lang === 'en') {
+          const statusesEN = ['Printing in progress...', 'Depositing layer...', 'CRIX 3D Manufacturing', 'Printing in progress...'];
+          statusEl.textContent = statusesEN[statusIdx];
+        }
       }, 2200);
 
       // Slight auto-rotate
