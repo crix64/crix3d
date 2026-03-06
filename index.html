@@ -1499,4 +1499,22 @@
 
         // Gentle scene rotation
         autoRotY += 0.003;
-        scene.rotation.y = Math.si
+        // Gentle scene rotation
+        autoRotY += 0.003;
+        scene.rotation.y = Math.sin(autoRotY * 0.5) * 0.3;
+
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      // Resize
+      window.addEventListener('resize', () => {
+        const nW = canvas.parentElement.clientWidth || 420;
+        camera.aspect = nW / H;
+        camera.updateProjectionMatrix();
+        renderer.setSize(nW, H);
+      });
+    })();
+  </script>
+</body>
+</html>
