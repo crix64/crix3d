@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CGV — CRIX 3D</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f4f0;
+      --gray: #c8c5bc;
+      --gray-dark: #3a3a3a;
+      --accent: #e8410a;
+      --card-bg: #141414;
+      --border: rgba(255,255,255,0.08);
+    }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+    }
+    nav {
+      position: sticky; top: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.8rem;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 70px; width: auto; object-fit: contain; border-radius: 4px; }
+    .nav-logo span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem; letter-spacing: 0.08em;
+      color: var(--white);
+    }
+    .nav-back {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+    .page-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .page-tag::before { content: '//'; opacity: 0.6; }
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+    .update-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--gray-dark);
+      margin-bottom: 3.5rem;
+    }
+
+    .cgv-section {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .cgv-section:last-child { border-bottom: none; }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px; height: 1.4rem;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    p {
+      font-size: 0.92rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--white); font-weight: 500; }
+
+    .disclaimer-box {
+      background: rgba(232,65,10,0.08);
+      border: 1px solid rgba(232,65,10,0.3);
+      padding: 1.8rem;
+      margin-bottom: 3rem;
+    }
+    .disclaimer-box p {
+      color: var(--white);
+      font-size: 0.9rem;
+    }
+    .disclaimer-box strong { color: var(--accent); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    footer p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--gray-dark);
+      margin: 0;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="CRIX_3D_FINI.jpg" alt="CRIX 3D" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
+      <span style="display:none;">CRIX 3D</span>
+    </a>
+    <a href="index.html" class="nav-back">← Retour au site</a>
+  </nav>
+
+  <div class="container">
+
+    <div class="page-tag">Légal</div>
+    <h1>Conditions Générales de Vente</h1>
+    <p class="update-date">Dernière mise à jour : 2025</p>
+
+    <div class="disclaimer-box">
+      <p><strong>⚠️ Avertissement important —</strong> CRIX 3D décline toute responsabilité quant à l'utilisation faite des pièces imprimées en 3D vendues ou fournies. L'acheteur est seul responsable de l'usage qu'il en fait. Les pièces sont vendues à titre d'accessoires non certifiés et ne sont pas destinées à des usages nécessitant des certifications de sécurité spécifiques.</p>
+    </div>
+
+    <div class="cgv-section">
+      <h2>Article 1 — Objet</h2>
+      <p>Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre <strong>CRIX 3D</strong> (ci-après "le Vendeur") et tout acheteur (ci-après "le Client") effectuant une commande via le site internet ou par tout autre moyen de contact proposé.</p>
+      <p>Toute commande implique l'acceptation pleine et entière des présentes CGV.</p>
+    </div>
+
+    <div class="cgv-section">
+      <h2>Article 2 — Produits</h2>
+      <p>Les produits proposés sont des pièces et accessoires fabriqués par impression 3D et/ou gravure laser. Les pièces sont produites artisanalement, à la demande, en petites séries ou sur mesure.</p>
+      <p>Les photos et visuels présentés sur le site sont donnés à titre indicatif. De légères variations de couleur ou de finition peuvent exister selon les matériaux disponibles.</p>
+      <p>CRIX 3D se réserve le droit de modifier les caractéristiques techniques de ses produits sans préavis.</p>
+    </div>
+
+    <div class="cgv-section">
+      <h2>Article 3 — Prix</h2>
+      <p>Les prix affichés sont indiqués en euros (€) toutes taxes comprises (TTC). CRIX 3D se réserve le droit de modifier ses prix à tout moment. Les commandes sont facturées au tarif en vigueur au moment de la validation.</p>
+      <p>Les frais de livraison sont variables selon la destination et sont indiqués lors de la commande.</p>
+    </div>
+
+    <div class="cgv-section">
+      <h2>Article 4 — Commande & Paiement</h2>
+      <p>Toute commande est confirmée après réception du paiement intégral. Le paiement s'effectue via les moyens proposés sur le site (PayPal ou autre moyen indiqué).</p>
+      <p>En cas de commande personnalisée, un devis est établi et la fabrication débute après accord et paiement du Client.</p>
+    </div>
+
+    <div class="cgv-section">
+      <h2>Article 5 — Délais de fabrication et livraison</h2>
+      <p>Les délais de fabrication sont de <strong>24 à 48 heures</strong> pour les produits du catalogue, et de <strong>5 à 7 jours ouvrés</strong> pour les commandes personnalisées.</p>
+      <p>Les délais de livraison sont variables selon la destination et le transporteur choisi. CRIX 3D ne saurait être tenu responsable des retards liés aux transporteurs.</p>
+    </div>
+
+    <div class="cgv-section">
+      <h2>Article 6 — Limitation de responsabilité</h2>
+      <p><strong>CRIX 3D décline expressément toute responsabilité quant à l'utilisation faite par le Client des pièces achetées.</strong> Les produits sont des accessoires imprimés en 3D non certifiés, destinés à un usage normal et raisonnable tel que décrit dans leur description.</p>
+      <p>Le Client est seul responsable de l'usage qu'il fait des produits achetés. CRIX 3D ne pourra être tenu responsable de tout dommage direct ou indirect, matériel ou immatériel, résultant d'une utilisation inadaptée, abusive ou non conforme des pièces.</p>
+      <p>Les pièces ne sont pas homologuées pour des usages nécessitant des certifications de sécurité (médical, aéronautique, automobile, etc.).</p>
+    </div>
+
+    <div class="cgv-section">
+      <h2>Article 7 — Retours & Remboursements</h2>
+      <p>En raison du caractère personnalisé et fabriqué à la demande des produits, <strong>les retours ne sont pas acceptés</strong> sauf en cas de défaut de fabrication avéré constaté à la réception.</p>
+      <p>Tout défaut doit être signalé dans les <strong>48 heures</strong> suivant la réception par email. Une photo du défaut sera demandée. En cas de défaut reconnu, CRIX 3D proposera une réimpression ou un remboursement.</p>
+    </div>
+
+    <div class="cgv-section">
+      <h2>Article 8 — Propriété intellectuelle</h2>
+      <p>Les modèles 3D, designs et créations de CRIX 3D sont la propriété exclusive du Vendeur. Toute reproduction, modification ou revente sans autorisation est strictement interdite.</p>
+    </div>
+
+    <div class="cgv-section">
+      <h2>Article 9 — Données personnelles</h2>
+      <p>Les informations collectées lors d'une commande (nom, email, adresse) sont utilisées uniquement dans le cadre du traitement de la commande. Elles ne sont ni vendues ni transmises à des tiers.</p>
+    </div>
+
+    <div class="cgv-section">
+      <h2>Article 10 — Droit applicable</h2>
+      <p>Les présentes CGV sont soumises au droit français. En cas de litige, et après tentative de résolution amiable, les tribunaux compétents seront ceux du ressort du siège de CRIX 3D.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 CRIX 3D — Tous droits réservés</p>
+    <p><a href="index.html">← Retour au site</a></p>
+  </footer>
+
+</body>
+</html>
