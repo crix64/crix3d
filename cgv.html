@@ -253,7 +253,7 @@
         't-h6': 'Article 6 — Limitation de responsabilité', 't-h7': 'Article 7 — Retours & Remboursements',
         't-h8': 'Article 8 — Propriété intellectuelle', 't-h9': 'Article 9 — Données personnelles',
         't-h10': 'Article 10 — Droit applicable',
-        't-p1a': "Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre CRIX 3D (ci-après "le Vendeur") et tout acheteur (ci-après "le Client") effectuant une commande via le site internet ou par tout autre moyen de contact proposé.",
+        't-p1a': "Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre CRIX 3D (ci-après \"le Vendeur\") et tout acheteur (ci-après \"le Client\") effectuant une commande via le site internet ou par tout autre moyen de contact proposé.",
         't-p1b': "Toute commande implique l'acceptation pleine et entière des présentes CGV.",
         't-p2a': "Les produits proposés sont des pièces et accessoires fabriqués par impression 3D et/ou gravure laser. Les pièces sont produites artisanalement, à la demande, en petites séries ou sur mesure.",
         't-p2b': "Les photos et visuels présentés sur le site sont donnés à titre indicatif. De légères variations de couleur ou de finition peuvent exister selon les matériaux disponibles.",
@@ -284,7 +284,7 @@
         't-h6': 'Article 6 — Limitation of Liability', 't-h7': 'Article 7 — Returns & Refunds',
         't-h8': 'Article 8 — Intellectual Property', 't-h9': 'Article 9 — Personal Data',
         't-h10': 'Article 10 — Applicable Law',
-        't-p1a': "These General Terms and Conditions (T&Cs) govern the contractual relationship between CRIX 3D (hereinafter "the Seller") and any buyer (hereinafter "the Customer") placing an order via the website or any other contact method offered.",
+        't-p1a': "These General Terms and Conditions (T&Cs) govern the contractual relationship between CRIX 3D (hereinafter \"the Seller\") and any buyer (hereinafter \"the Customer\") placing an order via the website or any other contact method offered.",
         't-p1b': "Placing an order implies full and unconditional acceptance of these T&Cs.",
         't-p2a': "The products offered are parts and accessories manufactured by 3D printing and/or laser engraving. Parts are crafted individually, on demand, in small batches or custom-made.",
         't-p2b': "Photos and visuals on the site are for illustrative purposes only. Slight variations in color or finish may occur depending on available materials.",
@@ -312,6 +312,10 @@
       Object.keys(dict).forEach(id => {
         const el = document.getElementById(id);
         if (el) el.textContent = dict[id];
+      });
+      // Traduire aussi les éléments data-fr/data-en sans id
+      document.querySelectorAll('[data-fr][data-en]').forEach(el => {
+        if (!el.querySelector('[id]')) el.textContent = el.getAttribute('data-' + lang);
       });
       document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
