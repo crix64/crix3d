@@ -935,17 +935,17 @@
         <div class="product-info">
           <div class="product-ref">REF-SE50-TOP</div>
           <h3 class="product-name"><span data-fr="Support Electro-Voice Evolve 50" data-en="Electro-Voice Evolve 50 Stand"><span id="t-p1-name">Support Electro-Voice Evolve 50</span></span></h3>
-          <p class="product-desc">Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 50. Surface plane et stable pour poser votre matériel.</p>
+          <p class="product-desc"><span id="t-p1-desc">Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 50. Surface plane et stable pour poser votre matériel.</span></p>
           <div class="product-specs">
             <span class="spec-tag">PETG</span>
             <span class="spec-tag">Evolve 50</span>
             <span class="spec-tag"><span data-fr="Montage sans outil" data-en="Tool-free assembly">Montage sans outil</span></span>
           </div>
           <div class="color-choice">
-            <span class="color-label"><span data-fr="Couleur :" data-en="Color:">Couleur :</span></span>
+            <span class="color-label"><span id="t-couleur1">Couleur :</span></span>
             <button class="color-btn active" data-color="Noir" onclick="selectColor(this)" style="background:#111; border:2px solid #e8410a;"></button>
             <button class="color-btn" data-color="Blanc" onclick="selectColor(this)" style="background:#f0f0f0; border:2px solid transparent;"></button>
-            <span class="color-selected">Noir</span>
+            <span class="color-selected" id="t-color-val1">Noir</span>
           </div>
           <div class="product-footer">
             <div class="product-price">75 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;">Hors frais de livraison</small></span></div>
@@ -969,7 +969,7 @@
         <div class="product-info">
           <div class="product-ref">REF-SE70-TOP</div>
           <h3 class="product-name"><span data-fr="Support Electro-Voice Evolve 70/90" data-en="Electro-Voice Evolve 70/90 Stand"><span id="t-p2-name">Support Electro-Voice Evolve 70/90</span></span></h3>
-          <p class="product-desc">Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 70/90. Fixation précise et maintien optimal.</p>
+          <p class="product-desc"><span id="t-p2-desc">Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 70/90. Fixation précise et maintien optimal.</span></p>
           <div class="product-specs">
             <span class="spec-tag">PETG</span>
             <span class="spec-tag">Evolve 70/90</span>
@@ -979,7 +979,7 @@
             <span class="color-label"><span id="t-couleur1">Couleur :</span></span>
             <button class="color-btn active" data-color="Noir" onclick="selectColor(this)" style="background:#111; border:2px solid #e8410a;"></button>
             <button class="color-btn" data-color="Blanc" onclick="selectColor(this)" style="background:#f0f0f0; border:2px solid transparent;"></button>
-            <span class="color-selected">Noir</span>
+            <span class="color-selected" id="t-color-val2">Noir</span>
           </div>
           <div class="product-footer">
             <div class="product-price">90 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;">Hors frais de livraison</small></span></div>
@@ -1155,7 +1155,10 @@
       });
       btn.classList.add('active');
       btn.style.border = '2px solid #e8410a';
-      group.querySelector('.color-selected').textContent = btn.dataset.color;
+      const colorMap = { fr: { 'Noir': 'Noir', 'Blanc': 'Blanc', 'Black': 'Noir', 'White': 'Blanc' }, en: { 'Noir': 'Black', 'Blanc': 'White', 'Black': 'Black', 'White': 'White' } };
+      const lang = window._lang || 'fr';
+      const rawColor = btn.dataset.color;
+      group.querySelector('.color-selected').textContent = colorMap[lang][rawColor] || rawColor;
     }
     function addToCartColor(btn, name, price) {
       const group = btn.closest('.product-info').querySelector('.color-choice');
@@ -1265,7 +1268,7 @@
         't-photo1': 'Photo à venir', 't-photo2': 'Photo à venir',
         't-sur-mesure-ph': 'Sur mesure',
         't-spec-montage1': 'Montage sans outil', 't-spec-montage2': 'Montage sans outil',
-        't-couleur1': 'Couleur :', 't-couleur2': 'Couleur :',
+        't-couleur1': 'Couleur :', 't-couleur2': 'Couleur :', 't-color-val1': 'Noir', 't-color-val2': 'Noir',
         't-spec-devis': 'Sur devis', 't-spec-modele': 'Tout modèle', 't-spec-delai': 'Délai à définir',
         't-step1-title': 'Envoyez votre demande', 't-step1-desc': 'Décrivez votre modèle et vos besoins via le formulaire ci-contre.',
         't-step2-title': 'Devis sous 48h', 't-step2-desc': 'Je vous envoie un devis détaillé selon les informations fournies.',
@@ -1317,7 +1320,7 @@
         't-photo1': 'Photo coming soon', 't-photo2': 'Photo coming soon',
         't-sur-mesure-ph': 'Custom',
         't-spec-montage1': 'Tool-free assembly', 't-spec-montage2': 'Tool-free assembly',
-        't-couleur1': 'Color:', 't-couleur2': 'Color:',
+        't-couleur1': 'Color:', 't-couleur2': 'Color:', 't-color-val1': 'Black', 't-color-val2': 'Black',
         't-spec-devis': 'On quote', 't-spec-modele': 'Any model', 't-spec-delai': 'Lead time TBD',
         't-step1-title': 'Send your request', 't-step1-desc': 'Describe your model and needs using the form opposite.',
         't-step2-title': 'Quote within 48h', 't-step2-desc': 'I will send you a detailed quote based on the information provided.',
@@ -1334,9 +1337,16 @@
     function setLang(lang) {
       document.documentElement.lang = lang;
       const dict = TRANSLATIONS[lang];
+      // Traduire les éléments avec id
       Object.keys(dict).forEach(id => {
         const el = document.getElementById(id);
         if (el) el.textContent = dict[id];
+      });
+      // Traduire les éléments avec data-fr/data-en SANS id imbriqué
+      document.querySelectorAll('[data-fr][data-en]').forEach(el => {
+        if (!el.querySelector('[id]')) {
+          el.textContent = el.getAttribute('data-' + lang);
+        }
       });
       document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
