@@ -921,10 +921,16 @@
 
       <!-- PRODUIT 1 -->
       <div class="product-card">
-        <div class="product-img-placeholder">
+        <div class="product-gallery">
           <div class="product-badge"><span data-fr="Disponible" data-en="Available">Disponible</span></div>
-          <div class="placeholder-icon">🔊</div>
-          <div class="placeholder-label"><span data-fr="Photo à venir" data-en="Photo coming soon">Photo à venir</span></div>
+          <div class="gallery-main">
+            <img id="gallery-main-img-50" src="evolve50-1.jpg" alt="Support Electro-Voice Evolve 50"/>
+          </div>
+          <div class="gallery-thumbs">
+            <img src="evolve50-1.jpg" class="thumb active" onclick="setMainImgById(this, 'gallery-main-img-50')"/>
+            <img src="evolve50-2.jpg" class="thumb" onclick="setMainImgById(this, 'gallery-main-img-50')"/>
+            <img src="evolve50-3.jpg" class="thumb" onclick="setMainImgById(this, 'gallery-main-img-50')"/>
+          </div>
         </div>
         <div class="product-info">
           <div class="product-ref">REF-SE50-TOP</div>
@@ -953,14 +959,11 @@
         <div class="product-gallery">
           <div class="product-badge"><span id="t-badge1">Disponible</span></div>
           <div class="gallery-main">
-            <img id="gallery-main-img" src="evolve70-1.jpg" alt="Support Electro-Voice Evolve 70/90"/>
+            <img id="gallery-main-img-70" src="evolve70-4.JPG" alt="Support Electro-Voice Evolve 70/90"/>
           </div>
           <div class="gallery-thumbs">
-            <img src="evolve70-1.jpg" class="thumb active" onclick="setMainImg(this)"/>
-            <img src="evolve70-2.jpg" class="thumb" onclick="setMainImg(this)"/>
-            <img src="evolve70-3.jpg" class="thumb" onclick="setMainImg(this)"/>
-            <img src="evolve70-4.jpg" class="thumb" onclick="setMainImg(this)"/>
-            <img src="evolve70_5.jpg" class="thumb" onclick="setMainImg(this)"/>
+            <img src="evolve70-4.JPG" class="thumb active" onclick="setMainImgById(this, 'gallery-main-img-70')"/>
+            <img src="evolve70_5.JPG" class="thumb" onclick="setMainImgById(this, 'gallery-main-img-70')"/>
           </div>
         </div>
         <div class="product-info">
@@ -1135,11 +1138,14 @@
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
     // GALLERY
-    function setMainImg(thumb) {
-      document.getElementById('gallery-main-img').src = thumb.src;
-      document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+    function setMainImgById(thumb, mainId) {
+      document.getElementById(mainId).src = thumb.src;
+      // Only reset thumbs in the same gallery
+      thumb.closest('.gallery-thumbs').querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
       thumb.classList.add('active');
     }
+    // Legacy
+    function setMainImg(thumb) { setMainImgById(thumb, 'gallery-main-img-70'); }
 
     // COLOR SELECTION
     function selectColor(btn) {
