@@ -1072,15 +1072,15 @@
         <h3><span data-fr="Demande de Devis" data-en="Quote Request"><span id="t-form-title">Demande de Devis</span></span></h3>
         <div class="form-group">
           <label><span id="t-form-name">Votre prénom & nom</span></label>
-          <input type="text" placeholder="Jean Dupont" />
+          <input type="text" name="name" id="form-name" placeholder="Jean Dupont" />
         </div>
         <div class="form-group">
           <label><span id="t-form-email">Email</span></label>
-          <input type="email" placeholder="jean@exemple.fr" />
+          <input type="email" name="email" id="form-email" placeholder="jean@exemple.fr" />
         </div>
         <div class="form-group">
           <label><span id="t-form-type">Type d'impression souhaité</span></label>
-          <select>
+          <select name="type" id="form-type">
             <option value="" id="t-select-default">— Sélectionnez —</option>
             <option id="t-select-deco">Impression décorative</option>
             <option id="t-select-meca">Impression type mécanique</option>
@@ -1089,7 +1089,7 @@
         </div>
         <div class="form-group">
           <label><span id="t-form-details">Détails & précisions</span></label>
-          <textarea placeholder="Dimensions, couleur souhaitée, quantité, utilisation..."></textarea>
+          <textarea name="message" id="form-message" placeholder="Dimensions, couleur souhaitée, quantité, utilisation..."></textarea>
         </div>
         <button class="submit-btn" onclick="submitForm()"><span data-fr="Envoyer ma demande →" data-en="Send my request →"><span id="t-form-submit">Envoyer ma demande →</span></span></button>
       </div>
@@ -1247,7 +1247,43 @@
     }
 
     // FORM
-    function submitForm() { showToast('✓ Demande envoyée ! Réponse sous 24h'); }
+    async function submitForm() {
+      const name = document.getElementById('form-name').value.trim();
+      const email = document.getElementById('form-email').value.trim();
+      const type = document.getElementById('form-type').value;
+      const message = document.getElementById('form-message').value.trim();
+      const lang = window._lang || 'fr';
+
+      if (!name || !email || !message) {
+        showToast(lang === 'en' ? '⚠️ Please fill in all fields' : '⚠️ Merci de remplir tous les champs');
+        return;
+      }
+
+      const btn = document.querySelector('.submit-btn');
+      btn.disabled = true;
+      btn.style.opacity = '0.6';
+
+      try {
+        const res = await fetch('https://formspree.io/f/mqeyavzp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ name, email, type, message })
+        });
+        if (res.ok) {
+          showToast(lang === 'en' ? '✓ Request sent! Reply within 72h' : '✓ Demande envoyée ! Réponse sous 72h');
+          document.getElementById('form-name').value = '';
+          document.getElementById('form-email').value = '';
+          document.getElementById('form-type').value = '';
+          document.getElementById('form-message').value = '';
+        } else {
+          showToast(lang === 'en' ? '✗ Error, please try again' : '✗ Erreur, veuillez réessayer');
+        }
+      } catch(e) {
+        showToast(lang === 'en' ? '✗ Error, please try again' : '✗ Erreur, veuillez réessayer');
+      }
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    }
 
 
     // LANGUAGE TOGGLE
