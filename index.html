@@ -644,6 +644,15 @@
       transition: color 0.2s;
     }
     .footer-col ul a:hover { color: var(--white); }
+    .shipping-note {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 3rem 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--gray-dark);
+    }
     .footer-disclaimer {
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -962,7 +971,7 @@
             <span class="color-selected" id="t-color-val1">Noir</span>
           </div>
           <div class="product-footer">
-            <div class="product-price">75 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;"><span id="t-livraison1">Hors frais de livraison</span></small></span></div>
+            <div class="product-price">75 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;"><span id="t-livraison1">Hors frais de livraison</span> *</small></span></div>
             <button class="add-to-cart" onclick="addToCartColor(this, 'Support Electro-Voice Evolve 50', 75)"><span data-fr="+ Ajouter" data-en="+ Add">+ Ajouter</span></button>
           </div>
         </div>
@@ -996,7 +1005,7 @@
             <span class="color-selected" id="t-color-val2">Noir</span>
           </div>
           <div class="product-footer">
-            <div class="product-price">90 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;"><span id="t-livraison2">Hors frais de livraison</span></small></span></div>
+            <div class="product-price">90 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;"><span id="t-livraison2">Hors frais de livraison</span> *</small></span></div>
             <button class="add-to-cart" onclick="addToCartColor(this, 'Support Electro-Voice Evolve 70/90', 90)"><span data-fr="+ Ajouter" data-en="+ Add">+ Ajouter</span></button>
           </div>
         </div>
@@ -1139,6 +1148,7 @@
         </ul>
       </div>
     </div>
+    <div class="shipping-note"><span id="t-shipping-note">* Les frais de livraison sont calculés en fonction de la destination et seront indiqués lors de la commande.</span></div>
     <div class="footer-disclaimer">
       <p>⚠️ <strong><span id="t-disclaimer-label">Avertissement :</span></strong> <span id="t-disclaimer-text">CRIX 3D décline toute responsabilité quant à l'utilisation faite des pièces imprimées vendues ou fournies. L'acheteur est seul responsable de l'usage qu'il en fait. Les pièces sont vendues à titre de prototypes ou d'accessoires non certifiés. Voir nos</span> <a href="cgv.html"><span id="t-disclaimer-cgv">CGV</span></a> <span id="t-disclaimer-end">pour plus de détails.</span></p>
     </div>
@@ -1292,7 +1302,7 @@
         't-footer-nav': 'Navigation', 't-footer-infos': 'Infos',
         't-footer-catalogue': 'Catalogue', 't-footer-custom': 'Sur mesure', 't-footer-about': 'À propos',
         't-mentions': 'Mentions légales', 't-politique': 'Politique de retour', 't-faq': 'FAQ', 't-cgv': 'CGV',
-        't-footer-made': 'Fait avec ❤️ en France', 't-disclaimer-label': 'Avertissement :', 't-disclaimer-text': "CRIX 3D décline toute responsabilité quant à l'utilisation faite des pièces imprimées vendues ou fournies. L'acheteur est seul responsable de l'usage qu'il en fait. Les pièces sont vendues à titre de prototypes ou d'accessoires non certifiés. Voir nos", 't-disclaimer-cgv': 'CGV', 't-disclaimer-end': 'pour plus de détails.',
+        't-footer-made': 'Fait avec ❤️ en France', 't-shipping-note': '* Les frais de livraison sont calculés en fonction de la destination et seront indiqués lors de la commande.', 't-disclaimer-label': 'Avertissement :', 't-disclaimer-text': "CRIX 3D décline toute responsabilité quant à l'utilisation faite des pièces imprimées vendues ou fournies. L'acheteur est seul responsable de l'usage qu'il en fait. Les pièces sont vendues à titre de prototypes ou d'accessoires non certifiés. Voir nos", 't-disclaimer-cgv': 'CGV', 't-disclaimer-end': 'pour plus de détails.',
       },
       en: {
         't-panier': 'Cart',
@@ -1344,7 +1354,7 @@
         't-footer-nav': 'Navigation', 't-footer-infos': 'Info',
         't-footer-catalogue': 'Catalogue', 't-footer-custom': 'Custom', 't-footer-about': 'About',
         't-mentions': 'Legal notices', 't-politique': 'Return policy', 't-faq': 'FAQ', 't-cgv': 'T&Cs',
-        't-footer-made': 'Made with ❤️ in France', 't-disclaimer-label': 'Notice:', 't-disclaimer-text': "CRIX 3D disclaims all liability for the use of 3D printed parts sold or provided. The buyer is solely responsible for their use. Parts are sold as non-certified prototypes or accessories. See our", 't-disclaimer-cgv': 'T&Cs', 't-disclaimer-end': 'for more details.',
+        't-footer-made': 'Made with ❤️ in France', 't-shipping-note': '* Shipping costs are calculated based on the destination and will be indicated at the time of order.', 't-disclaimer-label': 'Notice:', 't-disclaimer-text': "CRIX 3D disclaims all liability for the use of 3D printed parts sold or provided. The buyer is solely responsible for their use. Parts are sold as non-certified prototypes or accessories. See our", 't-disclaimer-cgv': 'T&Cs', 't-disclaimer-end': 'for more details.',
       }
     };
 
