@@ -339,6 +339,45 @@
     .gallery-thumbs .thumb:hover { opacity: 0.8; }
     .gallery-thumbs .thumb.active { opacity: 1; border-color: var(--accent); }
 
+
+    /* TABS */
+    .catalogue-tabs {
+      display: flex;
+      gap: 0;
+      margin: 2rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      cursor: pointer;
+      padding: 0.8rem 1.8rem;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .tab-btn:hover { color: var(--white); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    @media (max-width: 900px) { .tab-panel.active { grid-template-columns: 1fr; } }
+    .tab-empty {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--gray);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      border: 1px dashed var(--border);
+    }
+    .tab-empty span { display: block; font-size: 2rem; margin-bottom: 1rem; }
+
     /* CATALOGUE */
     #catalogue { background: var(--black); }
     .catalogue-header {
@@ -938,9 +977,16 @@
         <div class="section-tag"><span id="t-section-produits">Produits</span></div>
         <h2 class="section-title"><span data-fr="Notre Catalogue" data-en="Our Catalogue"><span id="t-catalogue-title">Notre Catalogue</span></span></h2>
       </div>
-      <p class="catalogue-desc"><span id="t-catalogue-desc">Supports conçus spécifiquement pour les enceintes colonnes Electro-Voice Evolve. Imprimés en PETG haute résistance.</span></p>
+      <p class="catalogue-desc"><span id="t-catalogue-desc">Pièces imprimées en 3D en PETG haute résistance, conçues et fabriquées en France.</span></p>
     </div>
-    <div class="products-grid">
+    <!-- ONGLETS -->
+    <div class="catalogue-tabs">
+      <button class="tab-btn active" id="tab-enceintes" onclick="switchTab('enceintes')"><span id="t-tab1">Supports Enceintes</span></button>
+      <button class="tab-btn" id="tab-deco" onclick="switchTab('deco')"><span id="t-tab2">Objets Décoratifs</span></button>
+    </div>
+
+    <!-- PANEL 1 : SUPPORTS ENCEINTES -->
+    <div class="tab-panel active" id="panel-enceintes">
 
       <!-- PRODUIT 1 -->
       <div class="product-card">
@@ -1032,7 +1078,16 @@
         </div>
       </div>
 
-    </div>
+    </div><!-- end panel-enceintes -->
+
+    <!-- PANEL 2 : OBJETS DÉCORATIFS -->
+    <div class="tab-panel" id="panel-deco">
+      <div class="tab-empty">
+        <span>🖨️</span>
+        <span id="t-deco-coming">Produits bientôt disponibles — Vases, lampes, lithophanies...</span>
+      </div>
+    </div><!-- end panel-deco -->
+
   </section>
 
   <!-- CUSTOM ORDER -->
@@ -1160,6 +1215,14 @@
   </footer>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+    // TABS
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      document.getElementById('panel-' + tab).classList.add('active');
+    }
 
     // GALLERY
     function setMainImgById(thumb, mainId) {
@@ -1299,8 +1362,8 @@
         't-nav-catalogue': 'Catalogue',
         't-nav-custom': 'Sur mesure',
         't-nav-about': 'À propos',
-        't-catalogue-title': 'Notre Catalogue',
-        't-catalogue-desc': "Supports conçus spécifiquement pour les enceintes colonnes Electro-Voice Evolve. Imprimés en PETG haute résistance.",
+        't-catalogue-title': 'Notre Catalogue', 't-tab1': 'Supports Enceintes', 't-tab2': 'Objets Décoratifs', 't-deco-coming': 'Produits bientôt disponibles — Vases, lampes, lithophanies...',
+        't-catalogue-desc': "Pièces imprimées en 3D en PETG haute résistance, conçues et fabriquées en France.",
         't-p1-name': 'Support Electro-Voice Evolve 50',
         't-p1-desc': "Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 50. Surface plane et stable pour poser votre matériel.",
         't-p2-name': 'Support Electro-Voice Evolve 70/90',
@@ -1351,8 +1414,8 @@
         't-nav-catalogue': 'Catalogue',
         't-nav-custom': 'Custom',
         't-nav-about': 'About',
-        't-catalogue-title': 'Our Catalogue',
-        't-catalogue-desc': 'Stands specifically designed for Electro-Voice Evolve column speakers. Made from high-resistance PETG.',
+        't-catalogue-title': 'Our Catalogue', 't-tab1': 'Speaker Stands', 't-tab2': 'Decorative Objects', 't-deco-coming': 'Products coming soon — Vases, lamps, lithophanes...',
+        't-catalogue-desc': '3D printed parts in high-resistance PETG, designed and manufactured in France.',
         't-p1-name': 'Electro-Voice Evolve 50 Stand',
         't-p1-desc': 'Custom 3D printed top tray designed for the Electro-Voice Evolve 50 column. Flat and stable surface for your equipment.',
         't-p2-name': 'Electro-Voice Evolve 70/90 Stand',
