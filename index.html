@@ -1801,7 +1801,7 @@
         ctx.font = `bold ${Math.max(10, W*0.045)}px 'Space Grotesk', sans-serif`;
         ctx.fillStyle = 'rgba(255,255,255,0.15)';
         ctx.textAlign = 'center';
-        ctx.fillText('SUR MESURE', cx, H - 16);
+        ctx.fillText(window._lang === 'en' ? 'CUSTOM' : 'SUR MESURE', cx, H - 16);
       }
       animParticles();
     })();
