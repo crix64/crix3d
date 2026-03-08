@@ -1082,6 +1082,7 @@
           <label><span id="t-form-type">Type d'impression souhaité</span></label>
           <select name="type" id="form-type">
             <option value="" id="t-select-default">— Sélectionnez —</option>
+            <option id="t-select-support">Support pour enceinte</option>
             <option id="t-select-deco">Impression décorative</option>
             <option id="t-select-meca">Impression type mécanique</option>
             <option id="t-select-other">Autre (préciser dans le message)</option>
@@ -1089,7 +1090,7 @@
         </div>
         <div class="form-group">
           <label><span id="t-form-details">Détails & précisions</span></label>
-          <textarea name="message" id="form-message" placeholder="Dimensions, couleur souhaitée, quantité, utilisation..."></textarea>
+          <textarea name="message" id="form-message" placeholder="Marque & modèle, dimensions, couleur souhaitée, quantité, utilisation..."></textarea>
         </div>
         <button class="submit-btn" onclick="submitForm()"><span data-fr="Envoyer ma demande →" data-en="Send my request →"><span id="t-form-submit">Envoyer ma demande →</span></span></button>
       </div>
@@ -1412,8 +1413,8 @@
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       // Placeholders
       const placeholders = {
-        fr: { name: 'Jean Dupont', email: 'jean@exemple.fr', details: 'Dimensions, couleur souhaitée, quantité, utilisation...' },
-        en: { name: 'John Smith', email: 'john@example.com', details: 'Dimensions, desired color, quantity, usage...' }
+        fr: { name: 'Jean Dupont', email: 'jean@exemple.fr', details: 'Marque & modèle, dimensions, couleur souhaitée, quantité, utilisation...' },
+        en: { name: 'John Smith', email: 'john@example.com', details: 'Brand & model, dimensions, desired color, quantity, usage...' }
       };
       const p = placeholders[lang];
       document.querySelectorAll('input[type=text]')[0] && (document.querySelectorAll('input[type=text]')[0].placeholder = p.name);
@@ -1424,8 +1425,8 @@
 
       // Translate select options
       const selectOpts = {
-        fr: { 't-select-default': '— Sélectionnez —', 't-select-deco': 'Impression décorative', 't-select-meca': 'Impression type mécanique', 't-select-other': 'Autre (préciser dans le message)' },
-        en: { 't-select-default': '— Select —', 't-select-deco': 'Decorative print', 't-select-meca': 'Mechanical type print', 't-select-other': 'Other (specify in message)' }
+        fr: { 't-select-default': '— Sélectionnez —', 't-select-support': 'Support pour enceinte', 't-select-deco': 'Impression décorative', 't-select-meca': 'Impression type mécanique', 't-select-other': 'Autre (préciser dans le message)' },
+        en: { 't-select-default': '— Select —', 't-select-support': 'Speaker stand', 't-select-deco': 'Decorative print', 't-select-meca': 'Mechanical type print', 't-select-other': 'Other (specify in message)' }
       };
       Object.keys(selectOpts[lang]).forEach(id => {
         const el = document.getElementById(id);
