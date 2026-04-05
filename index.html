@@ -1017,7 +1017,7 @@
             <span class="color-selected" id="t-color-val1">Noir</span>
           </div>
           <div class="product-footer">
-            <div class="product-price">75 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;"><span id="t-livraison1">Hors frais de livraison</span> *</small></span></div>
+            <div class="product-price">75 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;"><span id="t-paire1">La paire avec vis de fixation</span><br><span id="t-livraison1">Hors frais de livraison</span> *</small></span></div>
             <button class="add-to-cart" onclick="addToCartColor(this, 'Support Electro-Voice Evolve 50', 75)"><span data-fr="+ Ajouter" data-en="+ Add">+ Ajouter</span></button>
           </div>
         </div>
@@ -1051,7 +1051,7 @@
             <span class="color-selected" id="t-color-val2">Noir</span>
           </div>
           <div class="product-footer">
-            <div class="product-price">90 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;"><span id="t-livraison2">Hors frais de livraison</span> *</small></span></div>
+            <div class="product-price">90 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;"><span id="t-paire2">La paire avec vis de fixation</span><br><span id="t-livraison2">Hors frais de livraison</span> *</small></span></div>
             <button class="add-to-cart" onclick="addToCartColor(this, 'Support Electro-Voice Evolve 70/90', 90)"><span data-fr="+ Ajouter" data-en="+ Add">+ Ajouter</span></button>
           </div>
         </div>
@@ -1309,14 +1309,33 @@
     function openCart() { document.getElementById('cartDrawer').classList.add('open'); document.getElementById('cartOverlay').classList.add('open'); }
     function closeCart() { document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartOverlay').classList.remove('open'); }
     function checkout() {
-      // Redirige vers Stripe selon le produit dans le panier
-      const hasEvolve50 = cart.some(i => i.name.includes('Evolve 50'));
-      const hasEvolve70 = cart.some(i => i.name.includes('Evolve 70'));
-      if (hasEvolve50 && !hasEvolve70) {
-        window.open('https://buy.stripe.com/cNi4gz4lr4DF1cO88EdQQ00', '_blank');
+      const STRIPE = {
+        'evolve50-noir':  'https://buy.stripe.com/fZufZh3hn1rtf3E3SodQQ01',
+        'evolve50-blanc': 'https://buy.stripe.com/dRm14ng492vx8FgcoUdQQ02',
+        'evolve70-noir':  null,
+        'evolve70-blanc': null,
+      };
+
+      const lang = window._lang || 'fr';
+      const noirLabel  = lang === 'en' ? 'Black' : 'Noir';
+      const blancLabel = lang === 'en' ? 'White' : 'Blanc';
+
+      // Déterminer la clé Stripe selon produit + couleur
+      let key = null;
+      const item = cart[0];
+      if (!item) return;
+
+      if (item.name.includes('Evolve 50')) {
+        key = item.name.includes(blancLabel) ? 'evolve50-blanc' : 'evolve50-noir';
+      } else if (item.name.includes('Evolve 70')) {
+        key = item.name.includes(blancLabel) ? 'evolve70-blanc' : 'evolve70-noir';
+      }
+
+      const url = STRIPE[key];
+      if (url) {
+        window.open(url, '_blank');
       } else {
-        // Evolve 70/90 ou mixte : lien Stripe à venir
-        showToast('🚧 Paiement Evolve 70/90 bientôt disponible');
+        showToast(lang === 'en' ? '🚧 Payment link coming soon' : '🚧 Lien de paiement bientôt disponible');
       }
     }
 
@@ -1411,7 +1430,7 @@
         't-sur-mesure-ph': 'Sur mesure', 't-video-label': 'Sur mesure',
         't-spec-montage1': 'Montage sans outil', 't-spec-montage2': 'Montage sans outil',
         't-couleur1': 'Couleur :', 't-couleur2': 'Couleur :', 't-color-val1': 'Noir', 't-color-val2': 'Noir',
-        't-spec-devis': 'Sur devis', 't-spec-modele': 'Tout modèle', 't-spec-delai': 'Délai à définir', 't-livraison1': 'Hors frais de livraison', 't-livraison2': 'Hors frais de livraison', 't-prix-devis': 'Sur devis',
+        't-spec-devis': 'Sur devis', 't-spec-modele': 'Tout modèle', 't-spec-delai': 'Délai à définir', 't-paire1': 'La paire avec vis de fixation', 't-paire2': 'La paire avec vis de fixation', 't-livraison1': 'Hors frais de livraison', 't-livraison2': 'Hors frais de livraison', 't-prix-devis': 'Sur devis',
         't-step1-title': 'Envoyez votre demande', 't-step1-desc': 'Décrivez votre modèle et vos besoins via le formulaire ci-contre.',
         't-step2-title': 'Devis sous 72h minimum', 't-step2-desc': 'Je vous envoie un devis détaillé selon les informations fournies.',
         't-step3-title': 'Fabrication & expédition', 't-step3-desc': 'Expédition en fonction du délai de fabrication et de la destination après validation.',
@@ -1463,7 +1482,7 @@
         't-sur-mesure-ph': 'Custom', 't-video-label': 'Custom',
         't-spec-montage1': 'Tool-free assembly', 't-spec-montage2': 'Tool-free assembly',
         't-couleur1': 'Color:', 't-couleur2': 'Color:', 't-color-val1': 'Black', 't-color-val2': 'Black',
-        't-spec-devis': 'On quote', 't-spec-modele': 'Any model', 't-spec-delai': 'Lead time TBD', 't-livraison1': 'Excl. shipping costs', 't-livraison2': 'Excl. shipping costs', 't-prix-devis': 'On quote',
+        't-spec-devis': 'On quote', 't-spec-modele': 'Any model', 't-spec-delai': 'Lead time TBD', 't-paire1': 'The pair with mounting screws', 't-paire2': 'The pair with mounting screws', 't-livraison1': 'Excl. shipping costs', 't-livraison2': 'Excl. shipping costs', 't-prix-devis': 'On quote',
         't-step1-title': 'Send your request', 't-step1-desc': 'Describe your model and needs using the form opposite.',
         't-step2-title': 'Quote within 72h minimum', 't-step2-desc': 'I will send you a detailed quote based on the information provided.',
         't-step3-title': 'Manufacturing & shipping', 't-step3-desc': 'Shipping depends on manufacturing lead time and destination after validation.',
