@@ -1048,7 +1048,7 @@
           <div class="color-choice">
             <span class="color-label"><span id="t-couleur1">Couleur :</span></span>
             <button class="color-btn active" data-color="Noir" data-gallery="evolve70-1.jpg,evolve70-2.jpg,evolve70-3.jpg" data-gallery-id="gallery-main-img-70" onclick="selectColor(this)" style="background:#111; border:2px solid #e8410a;"></button>
-            <button class="color-btn" data-color="Blanc" data-gallery="evolve70-blanc1.jpg,evolve70-blanc2.jpg,evolve70-blanc3.jpg" data-gallery-id="gallery-main-img-70" onclick="selectColor(this)" style="background:#f0f0f0; border:2px solid transparent;"></button>
+            <button class="color-btn" data-color="Blanc" data-gallery="evolve70-blanc1.jpg,evolve70-blanc2.jpg,evolve70-blanc3.jpg,evolve70-4.JPG,evolve70-5.JPG" data-gallery-id="gallery-main-img-70" onclick="selectColor(this)" style="background:#f0f0f0; border:2px solid transparent;"></button>
             <span class="color-selected" id="t-color-val2">Noir</span>
           </div>
           <div class="product-footer">
@@ -1252,18 +1252,23 @@
       // Changer la galerie si des photos sont définies
       if (btn.dataset.gallery && btn.dataset.galleryId) {
         const imgs = btn.dataset.gallery.split(',');
-        const mainImg = document.getElementById(btn.dataset.galleryId);
+        const galleryId = btn.dataset.galleryId;
+        const mainImg = document.getElementById(galleryId);
         if (mainImg) mainImg.src = imgs[0];
-        // Mettre à jour les miniatures
+        // Reconstruire les miniatures dynamiquement
         const card = btn.closest('.product-card');
         if (card) {
-          const thumbs = card.querySelectorAll('.thumb');
-          thumbs.forEach((thumb, i) => {
-            if (imgs[i]) {
-              thumb.src = imgs[i];
-              thumb.classList.toggle('active', i === 0);
-            }
-          });
+          const thumbsContainer = card.querySelector('.gallery-thumbs');
+          if (thumbsContainer) {
+            thumbsContainer.innerHTML = '';
+            imgs.forEach((src, i) => {
+              const t = document.createElement('img');
+              t.src = src;
+              t.className = 'thumb' + (i === 0 ? ' active' : '');
+              t.onclick = function() { setMainImgById(this, galleryId); };
+              thumbsContainer.appendChild(t);
+            });
+          }
         }
       }
     }
