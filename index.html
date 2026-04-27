@@ -1935,7 +1935,7 @@
           tx: 0, ty: 0, tz: 0,
           size: Math.random()*2+1,
           speed: 0.03 + Math.random()*0.03,
-          hue: Math.random() > 0.7 ? 22 : 0 // orange or red
+          hue: Math.random() // 0=violet, 1=cyan gradient
         });
       }
 
@@ -2011,7 +2011,11 @@
             const dist = Math.sqrt(dx*dx+dy*dy);
             if (dist < scale * 0.35) {
               const alpha = (1 - dist/(scale*0.35)) * 0.25;
-              ctx.strokeStyle = `rgba(232,65,10,${alpha})`;
+              const t = (projected[i].px + projected[j].px) / (2 * W);
+              const r = Math.round(124 + t * (8 - 124));
+              const g = Math.round(58 + t * (145 - 58));
+              const b = Math.round(237 + t * (178 - 237));
+              ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
               ctx.beginPath();
               ctx.moveTo(projected[i].px, projected[i].py);
               ctx.lineTo(projected[j].px, projected[j].py);
@@ -2025,7 +2029,11 @@
           const depthScale = 0.5 + (p.depth+2)*0.25;
           const r = Math.max(0.5, p.size * depthScale);
           const alpha = 0.4 + (p.depth+2)*0.15;
-          const color = p.hue === 22 ? `rgba(232,65,10,${Math.min(1,alpha)})` : `rgba(255,255,255,${Math.min(0.9,alpha)})`;
+          const t = p.hue;
+          const pr2 = Math.round(124 + t * (8 - 124));
+          const pg = Math.round(58 + t * (145 - 58));
+          const pb = Math.round(237 + t * (178 - 237));
+          const color = `rgba(${pr2},${pg},${pb},${Math.min(1,alpha)})`;
           ctx.beginPath();
           ctx.arc(p.px, p.py, r, 0, Math.PI*2);
           ctx.fillStyle = color;
