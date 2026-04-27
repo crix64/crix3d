@@ -1148,7 +1148,7 @@
           <div class="color-choice">
             <span class="color-label"><span id="t-couleur4">Couleur :</span></span>
             <button class="color-btn active" data-color="Noir" data-gallery="thomann_audio_polar_12_3.jpg,thomann_audio_polar_12_2.jpg" data-gallery-id="gallery-main-img-hk" onclick="selectColor(this)" style="background:#111; border:2px solid #7c3aed;"></button>
-            <span class="color-selected">Noir</span>
+            <span class="color-selected" id="t-color-val4">Noir</span>
           </div>
           <div class="product-footer">
             <div class="product-price">60 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;"><span id="t-paire4">La paire avec vis de fixation</span><br><span id="t-livraison4">Hors frais de livraison</span> *</small></span></div>
@@ -1517,7 +1517,7 @@
         't-photo1': 'Photo à venir', 't-photo2': 'Photo à venir',
         't-sur-mesure-ph': 'Sur mesure', 't-video-label': 'Sur mesure',
         't-spec-montage1': 'Montage sans outil', 't-spec-montage2': 'Montage sans outil',
-        't-couleur1': 'Couleur :', 't-couleur2': 'Couleur :', 't-color-val1': 'Noir', 't-color-val2': 'Noir',
+        't-couleur1': 'Couleur :', 't-couleur2': 'Couleur :', 't-color-val1': 'Noir', 't-color-val2': 'Noir', 't-color-val4': 'Noir',
         't-spec-devis': 'Sur devis', 't-spec-modele': 'Tout modèle', 't-spec-delai': 'Délai à définir', 't-paire1': 'La paire avec vis de fixation', 't-paire2': 'La paire avec vis de fixation', 't-livraison1': 'Hors frais de livraison', 't-livraison2': 'Hors frais de livraison', 't-prix-devis': 'Sur devis',
         't-step1-title': 'Envoyez votre demande', 't-step1-desc': 'Décrivez votre modèle et vos besoins via le formulaire ci-contre.',
         't-step2-title': 'Devis sous 72h minimum', 't-step2-desc': 'Je vous envoie un devis détaillé selon les informations fournies.',
@@ -1569,7 +1569,7 @@
         't-photo1': 'Photo coming soon', 't-photo2': 'Photo coming soon',
         't-sur-mesure-ph': 'Custom', 't-video-label': 'Custom',
         't-spec-montage1': 'Tool-free assembly', 't-spec-montage2': 'Tool-free assembly',
-        't-couleur1': 'Color:', 't-couleur2': 'Color:', 't-color-val1': 'Black', 't-color-val2': 'Black',
+        't-couleur1': 'Color:', 't-couleur2': 'Color:', 't-color-val1': 'Black', 't-color-val2': 'Black', 't-color-val4': 'Black',
         't-spec-devis': 'On quote', 't-spec-modele': 'Any model', 't-spec-delai': 'Lead time TBD', 't-paire1': 'The pair with mounting screws', 't-paire2': 'The pair with mounting screws', 't-livraison1': 'Excl. shipping costs', 't-livraison2': 'Excl. shipping costs', 't-prix-devis': 'On quote',
         't-step1-title': 'Send your request', 't-step1-desc': 'Describe your model and needs using the form opposite.',
         't-step2-title': 'Quote within 72h minimum', 't-step2-desc': 'I will send you a detailed quote based on the information provided.',
@@ -1675,27 +1675,7 @@
       const MAT_FRAME   = new THREE.MeshStandardMaterial({ color: 0x1a1a1a, metalness: 0.8, roughness: 0.3 });
       const MAT_PANEL   = new THREE.MeshStandardMaterial({ color: 0x111111, metalness: 0.5, roughness: 0.6 });
       const MAT_HOTEND  = new THREE.MeshStandardMaterial({ color: 0x7c3aed, metalness: 0.9, roughness: 0.2, emissive: 0x7c3aed, emissiveIntensity: 0.4 });
-      const MAT_PRINT   = new THREE.ShaderMaterial({
-        uniforms: { printH: { value: 0.0 }, maxH: { value: 1.2 } },
-        vertexShader: \`
-          uniform float printH;
-          uniform float maxH;
-          varying float vGrad;
-          void main() {
-            vGrad = clamp(position.y / max(printH, 0.001), 0.0, 1.0);
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-          }
-        \`,
-        fragmentShader: \`
-          varying float vGrad;
-          void main() {
-            vec3 col1 = vec3(0.486, 0.227, 0.929); // violet #7c3aed
-            vec3 col2 = vec3(0.035, 0.569, 0.698); // cyan #0891b2
-            vec3 col = mix(col1, col2, vGrad);
-            gl_FragColor = vec4(col, 1.0);
-          }
-        \`
-      });
+      const MAT_PRINT   = new THREE.MeshStandardMaterial({ color: 0x0891b2, metalness: 0.3, roughness: 0.6, emissive: 0x7c3aed, emissiveIntensity: 0.2 });
       const MAT_BED     = new THREE.MeshStandardMaterial({ color: 0x222222, metalness: 0.3, roughness: 0.7 });
       const MAT_ROD     = new THREE.MeshStandardMaterial({ color: 0x888888, metalness: 0.95, roughness: 0.1 });
 
