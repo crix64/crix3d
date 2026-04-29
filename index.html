@@ -1023,6 +1023,7 @@
         <button class="filter-pill active" data-filter="brand" data-value="all" onclick="applyFilter(this)"><span id="t-filter-brand-all">Toutes</span></button>
         <button class="filter-pill" data-filter="brand" data-value="ev" onclick="applyFilter(this)">Electro-Voice</button>
         <button class="filter-pill" data-filter="brand" data-value="hk" onclick="applyFilter(this)">HK Audio</button>
+        <button class="filter-pill" data-filter="brand" data-value="ld" onclick="applyFilter(this)">LD Systems</button>
       </div>
     </div>
 
@@ -1153,6 +1154,41 @@
           <div class="product-footer">
             <div class="product-price">60 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;"><span id="t-paire4">La paire avec vis de fixation</span><br><span id="t-livraison4">Hors frais de livraison</span> *</small></span></div>
             <button class="add-to-cart" onclick="addToCartColor(this, 'Support HK Audio Polar 12', 60)"><span data-fr="+ Ajouter" data-en="+ Add">+ Ajouter</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUIT LD SYSTEMS MAUI 28 G3 -->
+      <div class="product-card" data-cat="enceintes" data-brand="ld">
+        <div class="product-gallery">
+          <div class="product-badge"><span data-fr="Disponible" data-en="Available">Disponible</span></div>
+          <div class="gallery-main">
+            <img id="gallery-main-img-maui" src="Maui28G3_1.jpg" alt="Support LD Systems Maui 28 G3"/>
+          </div>
+          <div class="gallery-thumbs">
+            <img src="Maui28G3_1.jpg" class="thumb active" onclick="setMainImgById(this, 'gallery-main-img-maui')"/>
+            <img src="Maui28G3_2.jpg" class="thumb" onclick="setMainImgById(this, 'gallery-main-img-maui')"/>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-brand-tag">LD Systems</div>
+          <div class="product-ref">REF-MAUI28G3</div>
+          <h3 class="product-name"><span id="t-p5-name">Support LD Systems Maui 28 G3</span></h3>
+          <p class="product-desc"><span id="t-p5-desc">Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne LD Systems Maui 28 G3. Fixation précise et maintien optimal.</span></p>
+          <div class="product-specs">
+            <span class="spec-tag">PETG</span>
+            <span class="spec-tag">Maui 28 G3</span>
+            <span class="spec-tag"><span data-fr="Montage sans outil" data-en="Tool-free assembly">Montage sans outil</span></span>
+          </div>
+          <div class="color-choice">
+            <span class="color-label"><span id="t-couleur5">Couleur :</span></span>
+            <button class="color-btn active" data-color="Noir" data-gallery="Maui28G3_1.jpg,Maui28G3_2.jpg" data-gallery-id="gallery-main-img-maui" onclick="selectColor(this)" style="background:#111; border:2px solid #7c3aed;"></button>
+            <button class="color-btn" data-color="Blanc" data-gallery="Maui28G3_1.jpg,Maui28G3_2.jpg" data-gallery-id="gallery-main-img-maui" onclick="selectColor(this)" style="background:#f0f0f0; border:2px solid transparent;"></button>
+            <span class="color-selected" id="t-color-val5">Noir</span>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">90 <span>€ TTC<br><small style="font-family:'DM Sans',sans-serif;font-size:0.6rem;color:var(--gray);font-weight:300;letter-spacing:0.05em;"><span id="t-paire5">La paire avec vis de fixation</span><br><span id="t-livraison5">Hors frais de livraison</span> *</small></span></div>
+            <button class="add-to-cart" onclick="addToCartColor(this, 'Support LD Systems Maui 28 G3', 90)"><span data-fr="+ Ajouter" data-en="+ Add">+ Ajouter</span></button>
           </div>
         </div>
       </div>
@@ -1400,6 +1436,8 @@
         'evolve70-noir':  null,
         'evolve70-blanc': null,
         'hkpolar12-noir': null,
+        'maui28g3-noir': null,
+        'maui28g3-blanc': null,
       };
 
       const lang = window._lang || 'fr';
@@ -1413,6 +1451,8 @@
 
       if (item.name.includes('Evolve 50')) {
         key = item.name.includes(blancLabel) ? 'evolve50-blanc' : 'evolve50-noir';
+      } else if (item.name.includes('Maui 28')) {
+        key = item.name.includes(blancLabel) ? 'maui28g3-blanc' : 'maui28g3-noir';
       } else if (item.name.includes('Polar 12')) {
         key = 'hkpolar12-noir';
       } else if (item.name.includes('Evolve 70')) {
@@ -1487,7 +1527,7 @@
         't-nav-catalogue': 'Catalogue',
         't-nav-custom': 'Sur mesure',
         't-nav-about': 'À propos',
-        't-catalogue-title': 'Notre Catalogue', 't-filter-cat': 'Catégorie', 't-filter-all': 'Tous', 't-filter-enc': 'Supports Enceintes', 't-filter-deco': 'Objets Décoratifs', 't-filter-brand': 'Marque', 't-filter-brand-all': 'Toutes', 't-p4-name': 'Support HK Audio Polar 12', 't-p4-desc': 'Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne HK Audio Polar 12. Fixation précise et maintien optimal.', 't-paire4': 'La paire avec vis de fixation', 't-livraison4': 'Hors frais de livraison', 't-couleur4': 'Couleur :',
+        't-catalogue-title': 'Notre Catalogue', 't-filter-cat': 'Catégorie', 't-filter-all': 'Tous', 't-filter-enc': 'Supports Enceintes', 't-filter-deco': 'Objets Décoratifs', 't-filter-brand': 'Marque', 't-filter-brand-all': 'Toutes', 't-p4-name': 'Support HK Audio Polar 12', 't-p4-desc': 'Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne HK Audio Polar 12. Fixation précise et maintien optimal.', 't-paire4': 'La paire avec vis de fixation', 't-livraison4': 'Hors frais de livraison', 't-couleur4': 'Couleur :', 't-p5-name': 'Support LD Systems Maui 28 G3', 't-p5-desc': 'Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne LD Systems Maui 28 G3. Fixation précise et maintien optimal.', 't-paire5': 'La paire avec vis de fixation', 't-livraison5': 'Hors frais de livraison', 't-couleur5': 'Couleur :', 't-color-val5': 'Noir',
         't-catalogue-desc': "Pièces imprimées en 3D dans plusieurs matières plastiques selon utilisation, conçues et fabriquées en France.",
         't-p1-name': 'Support Electro-Voice Evolve 50',
         't-p1-desc': "Plateau supérieur imprimé en 3D conçu sur mesure pour le haut de colonne Electro-Voice Evolve 50. Surface plane et stable pour poser votre matériel.",
@@ -1539,7 +1579,7 @@
         't-nav-catalogue': 'Catalogue',
         't-nav-custom': 'Custom',
         't-nav-about': 'About',
-        't-catalogue-title': 'Our Catalogue', 't-filter-cat': 'Category', 't-filter-all': 'All', 't-filter-enc': 'Speaker Stands', 't-filter-deco': 'Decorative Objects', 't-filter-brand': 'Brand', 't-filter-brand-all': 'All', 't-p4-name': 'HK Audio Polar 12 Stand', 't-p4-desc': '3D printed top plate custom-designed for the HK Audio Polar 12 column speaker. Precise fit and optimal hold.', 't-paire4': 'The pair with mounting screws', 't-livraison4': 'Excl. shipping costs', 't-couleur4': 'Color:',
+        't-catalogue-title': 'Our Catalogue', 't-filter-cat': 'Category', 't-filter-all': 'All', 't-filter-enc': 'Speaker Stands', 't-filter-deco': 'Decorative Objects', 't-filter-brand': 'Brand', 't-filter-brand-all': 'All', 't-p4-name': 'HK Audio Polar 12 Stand', 't-p4-desc': '3D printed top plate custom-designed for the HK Audio Polar 12 column speaker. Precise fit and optimal hold.', 't-paire4': 'The pair with mounting screws', 't-livraison4': 'Excl. shipping costs', 't-couleur4': 'Color:', 't-p5-name': 'LD Systems Maui 28 G3 Stand', 't-p5-desc': '3D printed top plate custom-designed for the LD Systems Maui 28 G3 column speaker. Precise fit and optimal hold.', 't-paire5': 'The pair with mounting screws', 't-livraison5': 'Excl. shipping costs', 't-couleur5': 'Color:', 't-color-val5': 'Black',
         't-catalogue-desc': '3D printed parts in various plastic materials depending on use, designed and manufactured in France.',
         't-p1-name': 'Electro-Voice Evolve 50 Stand',
         't-p1-desc': 'Custom 3D printed top tray designed for the Electro-Voice Evolve 50 column. Flat and stable surface for your equipment.',
